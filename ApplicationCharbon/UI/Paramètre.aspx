@@ -140,7 +140,7 @@
 
                 <h2>Paramètrage</h2>
                 <div class="row d-flex justify-content-center align-items-center">
-                    <div class="card">
+                    <div class="cards">
                         <div class="imgBx">
                             <img src="<%--../Assets/IMG/central.png--%>" alt="" />
                         </div>
@@ -155,7 +155,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="cards">
                         <div class="imgBx">
                             <img src="<%--../Assets/IMG/Map-01-01.png--%>" alt="" />
                         </div>
@@ -170,7 +170,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="cards">
                         <div class="imgBx">
                             <img src="<%--../Assets/IMG/Fournisseur.png--%>" alt="" />
                         </div>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="cards">
                         <div class="imgBx">
                             <img src="<%--../Assets/IMG/boat.png--%>" alt="" />
                         </div>
@@ -198,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="cards">
                         <div class="imgBx">
                             <img src="<%--../Assets/IMG/Combustible.png--%>" alt="" />
                         </div>

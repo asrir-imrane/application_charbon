@@ -10,10 +10,12 @@ namespace ApplicationCharbon.UI
 {
     public partial class Origin : System.Web.UI.Page
     {
+        
+
         protected void AddButton_Origine_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string OrigineNom = nom_origine.Value;
+            string OrigineNom = nomorigine.Text;
 
             // Créer un nouvel objet Fournisseur avec les valeurs de champ de formulaire
             Origine newOrigine = new Origine

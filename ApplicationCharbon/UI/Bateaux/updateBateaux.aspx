@@ -74,6 +74,6 @@
     </div>
 
     <!-- Supprimer Bateau -->
-    <% Server.Transfer("deleteBateau.aspx");%>
+    <% Server.Transfer("deleteBateaux.aspx");%>
 </body>
 </html>

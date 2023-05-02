@@ -214,5 +214,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Station_Central_Type">
+      <EntityTypeMapping TypeName="Charbon_DB2Model.Station_Central_Type">
+        <MappingFragment StoreEntitySet="Station_Central_Type">
+          <ScalarProperty Name="station_type" ColumnName="station_type" />
+          <ScalarProperty Name="stock_ajustement" ColumnName="stock_ajustement" />
+          <ScalarProperty Name="stock_difference" ColumnName="stock_difference" />
+          <ScalarProperty Name="stock_final" ColumnName="stock_final" />
+          <ScalarProperty Name="stock_initial" ColumnName="stock_initial" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="nom_station" ColumnName="nom_station" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

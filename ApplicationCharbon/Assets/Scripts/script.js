@@ -209,16 +209,7 @@ function suppressionContrat(id1, id2) {
 	document.getElementById("Id_ContratDSupp").value = id2;
 }
 
-//remplir les champs du formulaire (Modifier Origine Bateau)
-function remplirFormulaireOrigine(idOg, nomOg) {
-	document.getElementById("id_origineED").value = idOg;
-	document.getElementById("nom_origineED").value = nomOg;
-}
 
-//Suppression Origine Bateau
-function suppressionOrigine(id) {
-	document.getElementById("id_origineSupp").value = id;
-}
 
 //remplir les champs du formulaire (Modifier Bateau)
 function remplirFormulaireBateau(nom, tg, vq, ct, fd, dg, pr, assr, etat, idBT) {

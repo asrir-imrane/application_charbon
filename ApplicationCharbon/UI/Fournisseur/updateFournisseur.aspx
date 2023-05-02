@@ -5,19 +5,28 @@
 <head runat="server">
     <title></title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../Assets/CSS/Style.css" />
-    <link rel="stylesheet" href="../Assets/CSS/index.css" />
-    <link rel="stylesheet" href="../Assets/CSS/StyleSheet.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../Assets/Scripts/nav.js"></script>
-    <script src="../Assets/Scripts/script.js"></script>
+    <script>
+        $(".edit-fournisseur").click(function (e) {
+            e.preventDefault();
+
+            var fournisseurid = $(this).data('fournisseurid');
+            $('#id_fournisseurED').val(fournisseurid);
+            if ($(this).hasClass("edit-fournisseur")) {
+                $("#modifierFournisseur").modal("show");
+            }
+        });
+
+        $(".delete-fournisseur").click(function (e) {
+            e.preventDefault();
+
+            var fournisseurid = $(this).data('fournisseurid');
+            $('#id_fournisseur').val(fournisseurid);
+            if ($(this).hasClass("delete-fournisseur")) {
+                $("#supprimerFournisseur").modal("show");
+            }
+        });
+    </script>
+    
 
 </head>
 <body>
@@ -47,16 +56,16 @@
                             </div>
                         </div>
                     </div>
-            <div class="modal-footer">
+                    <div class="modal-footer">
 
-                <asp:Button ID="btnModifier" runat="server" Text="Modifier le fournisseur" CssClass="btn btn-warning" OnClick="EditButton_Fournisseur_Click" />
-                <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" OnClick="Annuler_Click" />
+                        <asp:Button ID="btnModifier" runat="server" Text="Modifier le fournisseur" CssClass="btn btn-warning" OnClick="EditButton_Fournisseur_Click" />
+                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" OnClick="Annuler_Click" />
+                    </div>
+                </form>
             </div>
-            </form>
         </div>
     </div>
-    </div>
-    
+
 
     <!-- Supprimer Station -->
     <% Server.Transfer("deleteFournisseur.aspx");%>

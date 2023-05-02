@@ -5,12 +5,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Supprimer Fournisseur </title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../Assets/CSS/Style.css" />
-    <link rel="stylesheet" href="../Assets/CSS/index.css" />
+    
     <link rel="stylesheet" href="../Assets/CSS/StyleSheet.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -18,6 +13,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../Assets/Scripts/nav.js"></script>
     <script src="../Assets/Scripts/script.js"></script>
+    <script>
+
+    </script>
 </head>
 <body>
   

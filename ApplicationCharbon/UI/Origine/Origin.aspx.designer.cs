@@ -15,21 +15,12 @@ namespace ApplicationCharbon.UI
     {
 
         /// <summary>
-        /// ajouterOrigine control.
+        /// nomorigine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ajouterOrigine;
-
-        /// <summary>
-        /// nom_origine control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nom_origine;
+        protected global::System.Web.UI.WebControls.TextBox nomorigine;
     }
 }

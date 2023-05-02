@@ -521,5 +521,26 @@
       <End Role="Types" EntitySet="Types" />
       <End Role="station_type" EntitySet="station_type" />
     </AssociationSet>
+    <EntitySet Name="Station_Central_Type" EntityType="Charbon_DB2Model.Station_Central_Type" />
   </EntityContainer>
+  <EntityType Name="Station_Central_Type">
+    <Key>
+      <PropertyRef Name="nom_station" />
+      <PropertyRef Name="adresse" />
+      <PropertyRef Name="telephone" />
+      <PropertyRef Name="stock_initial" />
+      <PropertyRef Name="stock_final" />
+      <PropertyRef Name="stock_difference" />
+      <PropertyRef Name="stock_ajustement" />
+      <PropertyRef Name="station_type" />
+    </Key>
+    <Property Name="nom_station" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adresse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="stock_initial" Type="Double" Nullable="false" />
+    <Property Name="stock_final" Type="Double" Nullable="false" />
+    <Property Name="stock_difference" Type="Double" Nullable="false" />
+    <Property Name="stock_ajustement" Type="Double" Nullable="false" />
+    <Property Name="station_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

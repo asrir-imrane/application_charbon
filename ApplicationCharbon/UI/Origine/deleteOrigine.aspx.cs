@@ -16,11 +16,12 @@ namespace ApplicationCharbon.UI
         }
         protected void DeleteButton_Origine_Click(object sender, EventArgs e)
         {
-            string IdOrigine = id_origineSupp.Value;
-            int IdOg = int.Parse(IdOrigine);
+            int IdOrigine = Int32.Parse(Request.Form["id_origineSupp"]);
+
 
             delete Delete = new delete();
-            Delete.SupprimerOrigine(IdOg);
+            Delete.SupprimerOrigine(IdOrigine);
+
 
             // Rediriger vers la page d'index après la suppression
             Response.Redirect("Origin.aspx");

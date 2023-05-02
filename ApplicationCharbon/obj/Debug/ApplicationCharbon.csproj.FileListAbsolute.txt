@@ -126,3 +126,10 @@ C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\obj\Debug\
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\obj\Debug\ApplicationCharbon.csproj.CopyComplete
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\obj\Debug\ApplicationCharbon.dll
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\obj\Debug\ApplicationCharbon.pdb
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Newtonsoft.Json.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Newtonsoft.Json.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\fr\EntityFramework.SqlServer.resources.dll

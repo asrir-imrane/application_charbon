@@ -165,6 +165,28 @@ warning 6002: The table/view 'Charbon_DB2.dbo.MaVue' does not have a primary key
     <Property Name="nom_station" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'Charbon_DB2.dbo.Station_Central_Type' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Station_Central_Type">
+    <Key>
+      <PropertyRef Name="nom_station" />
+      <PropertyRef Name="adresse" />
+      <PropertyRef Name="telephone" />
+      <PropertyRef Name="stock_initial" />
+      <PropertyRef Name="stock_final" />
+      <PropertyRef Name="stock_difference" />
+      <PropertyRef Name="stock_ajustement" />
+      <PropertyRef Name="station_type" />
+    </Key>
+    <Property Name="nom_station" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresse" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="telephone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="stock_initial" Type="float" Nullable="false" />
+    <Property Name="stock_final" Type="float" Nullable="false" />
+    <Property Name="stock_difference" Type="float" Nullable="false" />
+    <Property Name="stock_ajustement" Type="float" Nullable="false" />
+    <Property Name="station_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'Charbon_DB2.dbo.VBateau' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="VBateau">
     <Key>
@@ -447,6 +469,18 @@ warning 6002: The table/view 'Charbon_DB2.dbo.VContrat' does not have a primary 
     [MaVue].[id_station] AS [id_station], 
     [MaVue].[nom_station] AS [nom_station]
     FROM [dbo].[MaVue] AS [MaVue]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Station_Central_Type" EntityType="Self.Station_Central_Type" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Station_Central_Type].[nom_station] AS [nom_station], 
+    [Station_Central_Type].[adresse] AS [adresse], 
+    [Station_Central_Type].[telephone] AS [telephone], 
+    [Station_Central_Type].[stock_initial] AS [stock_initial], 
+    [Station_Central_Type].[stock_final] AS [stock_final], 
+    [Station_Central_Type].[stock_difference] AS [stock_difference], 
+    [Station_Central_Type].[stock_ajustement] AS [stock_ajustement], 
+    [Station_Central_Type].[station_type] AS [station_type]
+    FROM [dbo].[Station_Central_Type] AS [Station_Central_Type]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="VBateau" EntityType="Self.VBateau" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

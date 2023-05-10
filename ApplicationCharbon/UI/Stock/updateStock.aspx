@@ -41,25 +41,25 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="Consommation" class="form-label">Consommation :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="consommation" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="Livraison" class="form-label">Livraison :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="livraison" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="Decharge" class="form-label">Decharge :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="decharge" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="Autonomie" class="form-label">Autonomie :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="autonomie" runat="server" required="required" />

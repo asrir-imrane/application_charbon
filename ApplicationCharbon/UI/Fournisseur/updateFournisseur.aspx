@@ -26,7 +26,7 @@
             }
         });
     </script>
-    
+
 
 </head>
 <body>
@@ -38,29 +38,29 @@
 
                     <div class="modal-header">
                         <h2 class="modal-title">Modifier un Fournisseur</h2>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="id_fournisseurED" class="form-label">ID du fournisseur :</label>
+                            <label for="id_fournisseurED" class="form-label">ID du fournisseur</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="id_fournisseurED" name="id_fournisseurED" readonly="readonly" value="" />
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="fournisseurID" class="form-label">Nom du fournisseur :</label>
+                        <div class="form-group">
+                            <label for="fournisseurID" class="form-label">Nom du fournisseur</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="nom_fournisseurED" runat="server" required="required" />
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-
-                        <asp:Button ID="btnModifier" runat="server" Text="Modifier le fournisseur" CssClass="btn btn-warning" OnClick="EditButton_Fournisseur_Click" />
-                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" OnClick="Annuler_Click" />
+                        <asp:Button type="submit" Text="Modifier le fournisseur" class="btn btn-success" OnClick="EditButton_Fournisseur_Click" runat="server"></asp:Button>
+                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
+
                 </form>
             </div>
         </div>

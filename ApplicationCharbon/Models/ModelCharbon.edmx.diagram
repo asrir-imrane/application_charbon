@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4b6a925c962f40e288265951b9446513" Name="Diagram1">
+      <Diagram DiagramId="4b6a925c962f40e288265951b9446513" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="Charbon_DB2Model.Appel_Offre" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="Charbon_DB2Model.AppelOffre_Details" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Charbon_DB2Model.Association" Width="1.5" PointX="9.75" PointY="9.875" IsExpanded="true" />
@@ -21,8 +21,8 @@
         <EntityTypeShape EntityType="Charbon_DB2Model.Stock_Previsionnel" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="Charbon_DB2Model.Types" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Charbon_DB2Model.MaVue" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Charbon_DB2Model.VBateau" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Charbon_DB2Model.VContrat" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Charbon_DB2Model.VBateau" Width="1.5" PointX="5.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Charbon_DB2Model.VContrat" Width="1.5" PointX="9.875" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="Charbon_DB2Model.FK_14" ManuallyRouted="false" />
         <AssociationConnector Association="Charbon_DB2Model.FK_4" ManuallyRouted="false" />
         <AssociationConnector Association="Charbon_DB2Model.FK_5" ManuallyRouted="false" />
@@ -37,7 +37,7 @@
         <AssociationConnector Association="Charbon_DB2Model.FK_3" ManuallyRouted="false" />
         <AssociationConnector Association="Charbon_DB2Model.FK_15" ManuallyRouted="false" />
         <AssociationConnector Association="Charbon_DB2Model.FK_14_3" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Charbon_DB2Model.Station_Central_Type" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Charbon_DB2Model.Station_Central_Type" Width="1.5" PointX="20" PointY="5.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

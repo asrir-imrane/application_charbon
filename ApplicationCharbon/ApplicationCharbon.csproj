@@ -86,13 +86,19 @@
   <ItemGroup>
     <Content Include="Assets\CSS\index.css" />
     <Content Include="Assets\CSS\LoginStyle.css" />
+    <Content Include="Assets\CSS\parametre.css" />
     <Content Include="Assets\CSS\Style.css" />
     <Content Include="Assets\CSS\StyleSheet.css" />
+    <Content Include="Assets\IMG\36586_large.jpg" />
     <Content Include="Assets\IMG\boat.png" />
     <Content Include="Assets\IMG\central.png" />
     <Content Include="Assets\IMG\Combustible.png" />
+    <Content Include="Assets\IMG\Flat-Icons.com-Square-Boat.png" />
+    <Content Include="Assets\IMG\Flat-Icons.com-Square-Boat.svg" />
     <Content Include="Assets\IMG\Fournisseur.png" />
     <Content Include="Assets\IMG\Global Map.jpg" />
+    <Content Include="Assets\IMG\logo login.png" />
+    <Content Include="Assets\IMG\logo.png" />
     <Content Include="Assets\IMG\Map-01.png" />
     <Content Include="Assets\IMG\onee.png" />
     <Content Include="Assets\Scripts\nav.js" />

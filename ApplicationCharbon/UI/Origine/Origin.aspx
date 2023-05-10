@@ -9,6 +9,7 @@
     <title>Station</title>
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
 
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -43,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow p-3 mb-5 bg-white rounded">
                 <div class="container-fluid">
                     <!-- Website logo -->
-                    <img src="../../Assets/IMG/onee.png" alt="ONE" href="index.aspx" style="width: 259px; height: 60px;" />
+                    <img src="../../Assets/IMG/logo.png" alt="ONE" class="logo" />
                     <%-- <a class="navbar-brand" href="index.aspx">Application Charbon</a>--%>
                     <!-- Toggler button for mobile view -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,14 +129,11 @@
 
 
             <!-- Main content -->
-
-
-
             <div class="col-md-9 col-lg-10 main-content py-5">
                 <h2 class="title">Paramètrage</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="Paramètre.aspx">Paramètrage</a></li>
+                        <li class="breadcrumb-item"><a href="../Paramètre.aspx">Paramètrage</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Origine</li>
                     </ol>
                     <button type="button" class="btn btn-success btn-lg shadow" data-bs-toggle="modal" data-bs-target="#ajouterOrigineModal" style="position: absolute; top: 200px; right: 20px;">
@@ -158,13 +156,13 @@
                     <div class="cardss">
                         <div class="box">
                             <div class="content">
-                                <button type="button" class="btn-close delete-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>" data-dismiss="modal" aria-label="Close">
+                                <a type="button" class="btn-close delete-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>" data-dismiss="modal" aria-label="Close">
                                     <span class="delete-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>"></span>
-                                </button>
-                                <button  type="button" class=" edit-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>">
+                                </a>
+                                <a type="button" class=" edit-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>">
                                     <i class="btn-edit bi bi-pen me-2"></i>
                                     <span class="edit-origin" href="#" data-originid="<%= tp.id_origine %>" data-originname="<%= tp.nom_origine %>"></span>
-                                </button>
+                                </a>
                                 <h2>ID : 0<%= tp.id_origine %></h2>
                                 <h3>Origine : </h3>
                                 <p><%= tp.nom_origine.ToUpper() %></p>
@@ -173,7 +171,7 @@
                     </div>
                     <% } %>
                 </div>
-               
+
 
 
 
@@ -189,8 +187,8 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="nomstation" class="form-label">Nom d'Origine :</label>
+                                    <div class="form-group">
+                                        <label for="nomstation" class="form-label">Nom d'Origine </label>
                                         <asp:TextBox ID="nomorigine" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                     </div>
                                 </div>

@@ -11,6 +11,7 @@
     <title>Stock</title>
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
 
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -43,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <div class="container-fluid">
                     <!-- Website logo -->
-                    <a class="navbar-brand" href="#">Application Charbon</a>
+                    <img src="../../Assets/IMG/logo.png" alt="ONE" class="logo" />
                     <!-- Toggler button for mobile view -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -77,7 +78,7 @@
 
 
 
-                <div class="col-md-3 col-lg-2">
+            <div class="col-md-3 col-lg-2">
                 <div class="sidebar">
                     <div class="list-group">
                         <a href="index.aspx" class="list-group-item list-group-item-action ">
@@ -111,7 +112,7 @@
                 <div class="container-fluid p-3">
                     <div class="container-fluid p-3">
                         <div class="table-responsive">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <button type="button" class="btn btn-success btn-lg rounded-pill shadow" data-bs-toggle="modal" data-bs-target="#ajouterStockModal">
@@ -199,27 +200,27 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Date" class="form-label">Date :</label>
                                             <asp:TextBox ID="date" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Consommation" class="form-label">Consommation :</label>
                                             <asp:TextBox ID="consommation" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Livraison" class="form-label">Livraison :</label>
                                             <asp:TextBox ID="livraison" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Id Bateau" class="form-label">Id Bateau :</label>
                                             <asp:TextBox ID="id_bateau" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Decharge" class="form-label">Decharge :</label>
                                             <asp:TextBox ID="decharge" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
-                                        <div class="mb-3">
+                                        <div class="form-group">
                                             <label for="Autonomie" class="form-label">Autonomie :</label>
                                             <asp:TextBox ID="autonomie" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>

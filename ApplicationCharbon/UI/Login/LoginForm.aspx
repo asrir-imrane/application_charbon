@@ -3,58 +3,101 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>identification</title>
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" integrity="sha384-dtV5C5+mfIjJ8OvH0d7bzDJwIphlOaEJj/vxHgyV1pG9tX5Wj8oL5d5I7YoDQyCY" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+
     <link rel="stylesheet" href="../../Assets/CSS/LoginStyle.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css" />
-    <title>Connexion</title>
+
+    <!-- Add Bootstrap JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+
+
+    <!-- BOX ICONS CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+
 </head>
+
 <body>
-    <div class="Login">
-        <div class="section">
-            <div class="login bg-white m-4">
-                <h1 class="text-center">
-                    <svg class="img" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                    </svg>
-                </h1>
-
-
-                <form class="" runat="server">
-                    <div class="form-group">
-                        <label class="form-label" type="email">
-                            Nom Utilisateur 
-                        </label>
-                        <input type="text" class="form-control" placeholder="Nom Utilisateur" runat="server" id="UserLogin" required="required" />
-
-
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" type="password">
-                            Mot de passe
-                        </label>
-                        <input type="password" class="form-control" placeholder="Mot de passe" runat="server" id="UserPassword" required="required" />
-
-
-                    </div>
-
-
-
-                    <asp:Button type="submit" Text="S'identifier" runat="server" class="w-100  btn btn-lg btn-primary" OnClick="LoginButton_Click"></asp:Button>
-                    <div class="mt-4">
-                        <asp:Label runat="server" ID="errorMessage" Visible="false" Text="Nom Utilisateur  ou mot de passe invalide" CssClass=" alert alert-danger"></asp:Label>
-                        <asp:Label runat="server" ID="successMessage" Text="Vous vous êtes connecté avec succès!" Visible="false" CssClass=" alert alert-success"></asp:Label>
-
-                    </div>
-                </form>
+    <div class="container-wrapper">
+        <div class="container" runat="server">
+            <div class="img">
+                <img src="../../Assets/IMG/logo login.png" />
             </div>
+            <div class="box">
+                <div class="login-content">
+                    <form runat="server">
+                        <div class="circle">
+                            <i class="login bi bi-person"></i>
+                        </div>
+                        <h2 class="title">Se Connecter</h2>
+                        <div class="input-div one">
+                            <div class="i">
+                                <i class="bi bi-person"></i>
+                            </div>
+                            <div class="div">
+                                <h5>Nom Utilisateur </h5>
+                                <input type="text" class="input" runat="server" id="UserLogin" required="required" />
+                            </div>
+                        </div>
+                        <div class="input-div pass">
+                            <div class="i">
+                                <i class="bi bi-lock"></i>
+                            </div>
+                            <div class="div">
+                                <h5>Mot de passe</h5>
+                                <input type="password" class="input" runat="server" id="UserPassword" required="required" />
+                            </div>
+                        </div>
+                        <asp:Button type="submit" Text="S'identifier" runat="server" class="btn" OnClick="LoginButton_Click"></asp:Button>
+                        <asp:Label ID="errorMessage" runat="server" Visible="false" Text="Identifiant ou mot de passe incorrect. Veuillez réessayer." Style="color: red; font-weight: bold;" />
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
+    <script>
+        const inputs = document.querySelectorAll(".input");
+
+
+        function addcl() {
+            let parent = this.parentNode.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function remcl() {
+            let parent = this.parentNode.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+
+        inputs.forEach(input => {
+            input.addEventListener("focus", addcl);
+            input.addEventListener("blur", remcl);
+        });
+    </script>
 </body>
 </html>
 

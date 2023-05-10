@@ -20,7 +20,7 @@
 						<div class="form-group">
 							<input type="hidden" class="form-control" id="Id_AOSupp" runat="server" required="required"/>
 						</div>	
-						<p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
+						                        <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
 		
 					</div>
 					<div class="modal-footer">

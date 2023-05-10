@@ -24,13 +24,13 @@ namespace ApplicationCharbon.UI.Bateaux
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ajouterBateau;
 
         /// <summary>
-        /// id_contratAdd1 control.
+        /// nomcontratListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText id_contratAdd1;
+        protected global::System.Web.UI.WebControls.DropDownList nomcontratListe;
 
         /// <summary>
         /// nom_bateau control.
@@ -51,13 +51,13 @@ namespace ApplicationCharbon.UI.Bateaux
         protected global::System.Web.UI.HtmlControls.HtmlInputText tonnage;
 
         /// <summary>
-        /// nom_origineListe control.
+        /// nomorigineListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList nom_origineListe;
+        protected global::System.Web.UI.WebControls.DropDownList nomorigineListe;
 
         /// <summary>
         /// valeur_calorifique control.

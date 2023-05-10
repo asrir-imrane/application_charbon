@@ -29,26 +29,26 @@
                 <form id="editStationForm" runat="server">
 
                     <div class="modal-header">
-                        <h2 class="modal-title" id="ajouterStationModalLabel">Ajouter Station</h2>
+                        <h2 class="modal-title" id="ajouterStationModalLabel">Modifier Station</h2>
                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="id_station" class="form-label">ID du Station :</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="id_station" name="id_station" readonly="readonly" value="" />
-                            </div>
+
+                            <input type="text" class="form-control" id="id_station" name="id_station" readonly="readonly" value="" />
+
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="nomstation" class="form-label">Nom du Station :</label>
                             <asp:TextBox ID="nomstation" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="adresse" class="form-label">Adresse :</label>
                             <asp:TextBox ID="Adress" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="telephone" class="form-label">Telephone :</label>
                             <asp:TextBox ID="phone" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                         </div>

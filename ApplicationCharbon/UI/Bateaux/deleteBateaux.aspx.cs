@@ -12,16 +12,14 @@ namespace ApplicationCharbon.UI.Bateaux
     {
         protected void DeleteButton_Bateau_Click(object sender, EventArgs e)
         {
-            string IdBateau = Id_bateauSupp.Value;
-            int IdBT = int.Parse(IdBateau);
-
+            
+            int IdBT = Int32.Parse(Request.Form["Id_bateauSupp"]);
+            
             delete Delete = new delete();
             Delete.SupprimerBateau(IdBT);
 
-            // Rediriger vers la page d'index après la suppressionSystem.FormatException : 'Le format de la chaîne d'entrée est incorrect.'
-            // Response.Redirect("index.aspx#CS");
-            string IdContrat = Request.QueryString["id"];
-            Response.Redirect("Bateaux.aspx?id=" + IdContrat);
+            // Rediriger vers la page d'index après la suppression
+            Response.Redirect("Bateaux.aspx");
         }
 
     }

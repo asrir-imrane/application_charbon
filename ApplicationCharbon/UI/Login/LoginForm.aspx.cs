@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -20,6 +21,7 @@ namespace ApplicationCharbon.UI.Login
             string password = UserPassword.Value;
             var utilisateurService = new LoginService();
             bool isValidUser = utilisateurService.IsValidUser(username, password);
+            Label errorMessage = (Label)FindControl("errormessage");
             if (isValidUser)
             {
                 using (var context = new UtilisateurContext())
@@ -40,7 +42,7 @@ namespace ApplicationCharbon.UI.Login
             else
             {
                 // unsuccessful login
-                successMessage.Visible = false;
+
                 errorMessage.Visible = true;
             }
         }

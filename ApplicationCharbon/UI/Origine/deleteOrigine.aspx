@@ -51,8 +51,9 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="id_origineSupp" name="id_origineSupp" readonly="readonly" value="" />
                             </div>
-                            <p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                         </div>
+                        <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
+
                     </div>
 
                     <div class="modal-footer">

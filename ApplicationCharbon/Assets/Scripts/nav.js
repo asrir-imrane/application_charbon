@@ -26,7 +26,6 @@ function activateBtnClose() {
 
 
 
-
 //newMonday 
 var welcomeHeading = document.getElementById('welcome-heading');
 //station

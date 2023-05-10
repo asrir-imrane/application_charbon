@@ -30,7 +30,7 @@ namespace ApplicationCharbon.UI
                 db.SaveChanges();
 
             }
-            // Response.Redirect("index.aspx#station");
+
             Response.Redirect("Origin.aspx");
         }
     }

@@ -9,6 +9,7 @@
     <title>Station</title>
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
 
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -43,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow p-3 mb-5 bg-white rounded">
                 <div class="container-fluid">
                     <!-- Website logo -->
-                    <img src="../../Assets/IMG/onee.png" alt="ONE" href="index.aspx" style="width: 259px; height: 60px;" />
+                    <img src="../Assets/IMG/logo.png" alt="ONE" class="logo" />
                     <%-- <a class="navbar-brand" href="index.aspx">Application Charbon</a>--%>
                     <!-- Toggler button for mobile view -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,7 +104,7 @@
 
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action active" aria-current="true">
                             <i class="bi bi-sliders"></i>Paramètre
-                            </a>
+                        </a>
                         <ul class="submenu">
                             <li><a href="#">Station</a></li>
                             <li><a href="#">Origine</a></li>
@@ -140,94 +141,87 @@
                     </ol>
                     <button type="button" class="btn btn-success btn-lg shadow" data-bs-toggle="modal" data-bs-target="#ajouterStationModal" style="position: absolute; top: 200px; right: 20px;">
                         <i class="bi bi-plus-lg"></i>
-                        <span class="d-none d-md-inline-block">Ajouter une station</span>
+                        <span class="d-none d-md-inline-block">Ajouter une Station</span>
                     </button>
 
                 </nav>
 
 
-                <%@ Import Namespace="ApplicationCharbon.Services" %>
-                <% var service = new CharbonAccessService(); %>
-                <% var va = service.GetMyDataStation();
-                    foreach (var tp in va)
-                    { %>
-                <div class="card-station">
-                    <div class="content">
-                        <h3><%= tp.nom_station.ToUpper() %></h3>
-                        <p>Adresse : <%= tp.adresse.ToUpper() %> </p>
-                        <p>Telephone : <%= tp.telephone %></p>
-                    </div>
-                    <div class="button-container">
-                        <div class="button">
-                            <div class="icon">
-                                <a class="dropdown-item edit-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>">
-                                    <i class="bi bi-pen me-2"></i>
-                                </a>
-                            </div>
-                            <span class="edit-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>">Modifier Station</span>
-                        </div>
 
-                        <div class="button">
-                            <div class="icon">
-                                <a class="dropdown-item delete-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>">
-                                    <i class="bi bi-trash me-2"></i>
-                                </a>
-                            </div>
-                            <span class="delete-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>">Supprimer Station</span>
-                        </div>
 
-                        <div class="button">
-                            <div class="icon">
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#showdetailsModal">
-                                    <i class="bi bi-chevron-compact-right"></i>
+
+                <div class="container">
+                    <%@ Import Namespace="ApplicationCharbon.Services" %>
+                    <% var service = new CharbonAccessService(); %>
+                    <% var va = service.GetMyDataStation();
+                        foreach (var tp in va)
+                        { %>
+                    <div class="cards-station">
+                        <div class="box">
+                            <div class="content">
+                                <a type="button" class="btn-close delete-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>" data-dismiss="modal" aria-label="Close">
+                                    <span class="delete-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>"></span>
                                 </a>
+                                <a type="button" class="edit-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>">
+                                    <i class="btn-edit bi bi-pen me-2"></i>
+                                    <span class="edit-station" href="#" data-stationid="<%= tp.id_station %>" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>"></span>
+                                </a>
+                                <a type="button" class="details-station" href="#" data-bs-toggle="modal" data-bs-target="#showdetailsModal" data-stationname="<%= tp.nom_station %>" data-stationadress="<%= tp.adresse %>" data-stationphone="<%= tp.telephone %>">
+                                    <i class="btn-details bi bi-three-dots-vertical me-2"></i>
+                                    <span class="details-station"></span>
+                                </a>
+
+                                <h2>Nom Station : <%= tp.nom_station.ToUpper() %></h2>
+                                <h3>Origine : </h3>
+                                <p>Adresse : <%= tp.adresse.ToUpper() %></p>
+                                <p>Telephone : <%= tp.telephone %></p>
                             </div>
-                            <span class="details-station" data-bs-target="#showdetailsModal" data-stationname="<%= tp.nom_station %>" href="#">Détails</span>
                         </div>
                     </div>
+                    <% } %>
                 </div>
 
-                <% } %>
+
+
+
 
 
                 <!-- Detail Modal HTML -->
-                <div class="modal fade" id="showdetailsModal" tabindex="-1" aria-labelledby="showdetailsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog big-modal modal-xl" runat="server">
+                <div class="modal fade" id="showdetailsModal" tabindex="-1" aria-labelledby="showdetailsModalLabel" aria-hidden="true" runat="server">
+                    <div class="modal-dialog details">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5 text-uppercase" id="modal-title"></h1>
+                            <div class="modal-header ">
+                                <h1 class="modal-title fs-5 text-uppercase" id="modal-title" style="font-size: 34px;"></h1>
+
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-
-                            
-                           
-                            <div class="info-container"> 
+                            <div class="info-container">
                                 <div class="info-row">
-                                    <div class="info-label">Adresse:</div>
-                                    <div class="info-value" id="adresse"></div>
+                                    <div class="info-label">Adresse</div>
+                                    <div class="info-value text-uppercase" id="adresse"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Telephone:</div>
+                                    <div class="info-label">Telephone</div>
                                     <div class="info-value" id="telephone"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Stock Initial:</div>
+                                    <div class="info-label">Stock Initial</div>
                                     <div class="info-value" id="stockInitial"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Stock Final:</div>
+                                    <div class="info-label">Stock Final</div>
                                     <div class="info-value" id="stockFinal"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Stock Difference:</div>
+                                    <div class="info-label">Stock Difference</div>
                                     <div class="info-value" id="stockDifference"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Stock Ajustement:</div>
+                                    <div class="info-label">Stock Ajustement</div>
                                     <div class="info-value" id="stockAjustement"></div>
                                 </div>
                                 <div class="info-row">
-                                    <div class="info-label">Type:</div>
+                                    <div class="info-label">Type</div>
                                     <div class="info-value" id="type"></div>
                                 </div>
                             </div>
@@ -238,7 +232,7 @@
 
                 <!-- Add Modal HTML -->
                 <div class="modal fade" id="ajouterStationModal" tabindex="-1" aria-labelledby="ajouterStationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog small-modal">
+                    <div class="modal-dialog ">
                         <div class="modal-content">
                             <form runat="server">
                                 <div class="modal-header">
@@ -247,16 +241,16 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="nomstation" class="form-label">Nom du Station :</label>
+                                    <div class="form-group">
+                                        <label for="nomstation" class="form-label">Nom du Station</label>
                                         <asp:TextBox ID="nomstation" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="adresse" class="form-label">Adresse :</label>
+                                    <div class="form-group">
+                                        <label for="adresse" class="form-label">Adresse</label>
                                         <asp:TextBox ID="Adress" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="telephone" class="form-label">Telephone :</label>
+                                    <div class="form-group">
+                                        <label for="telephone" class="form-label">Telephone</label>
                                         <asp:TextBox ID="phone" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                     </div>
 

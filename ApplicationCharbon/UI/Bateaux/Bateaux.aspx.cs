@@ -12,13 +12,51 @@ namespace ApplicationCharbon.UI.Bateaux
 {
     public partial class Bateaux : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                
+
+                FillOrigineDropdown();
+            }
+        }
+
+
+
+        private void FillOrigineDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var origines = contexte.Origine.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                nomorigineListe.DataSource = origines;
+                nomorigineListe.DataTextField = "nom_origine";
+                nomorigineListe.DataValueField = "id_origine";
+                nomorigineListe.DataBind();
+            }
+        }
+
+
+        private void FillcontratDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var contratid = contexte.Contrat.ToList();
+                nomcontratListe.DataSource = contratid;
+                nomcontratListe.DataTextField = "nom_contrat";
+                nomcontratListe.DataValueField = "id_contrat";
+                nomcontratListe.DataBind();
+            }
+        }
 
 
         protected void AddButton_Bateau_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string IdContratAdd = id_contratAdd1.Value;
-            int Idct = int.Parse(IdContratAdd);
+            
+            int Idct = Convert.ToInt32(nomcontratListe.SelectedValue);
 
             string nomBateau = nom_bateau.Value;
 
@@ -27,9 +65,8 @@ namespace ApplicationCharbon.UI.Bateaux
 
 
 
-            string selectedValueOg = nom_origineListe.SelectedValue;
-            int IdOg = int.Parse(selectedValueOg);
-
+            int IdOg = Convert.ToInt32(nomorigineListe.SelectedValue);
+          
             string vlrCalorifique = valeur_calorifique.Value;
             decimal VCALORIFIQUE = decimal.Parse(vlrCalorifique);
 

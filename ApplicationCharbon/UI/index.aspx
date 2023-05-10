@@ -10,6 +10,7 @@
     <title>Accueil</title>
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
 
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../Assets/CSS/Style.css" />
     <link rel="stylesheet" href="../Assets/CSS/index.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Add Bootstrap JavaScript and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -31,20 +33,22 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="../Assets/Scripts/script.js"></script>
     <script src="../Assets/Scripts/nav.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <!-- BOX ICONS CSS-->
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
 
 </head>
 <body>
     <div class="container-fluid">
-
         <div class="row">
             <!-- Top bar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow p-3 mb-5 bg-white rounded">
                 <div class="container-fluid">
                     <!-- Website logo -->
-                    <img src="../Assets/IMG/onee.png" alt="ONE" href="index.aspx" style="width: 259px; height: 60px;" />
+                    <img src="../Assets/IMG/logo.png" alt="ONE" class="logo" />
                     <%-- <a class="navbar-brand" href="index.aspx">Application Charbon</a>--%>
                     <!-- Toggler button for mobile view -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,10 +107,9 @@
                         <a href="index.aspx" class="list-group-item list-group-item-action active">
                             <i class="bi bi-speedometer2 me-2"></i>Accueil
                         </a>
-
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action " aria-current="true">
                             <i class="bi bi-sliders"></i>Paramètre
-                            </a>
+                        </a>
                         <ul class="submenu">
                             <li><a href="#">Station</a></li>
                             <li><a href="#">Origine</a></li>
@@ -131,7 +134,12 @@
 
 
             <div class="col-md-9 col-lg-10 main-content py-5">
-                <h2 class="title">Accueil</h2>
+                <div class="section-title" >
+                    <h2>Accueil</h2>
+                    <p class="section">
+                    </p>
+                </div>
+
                 <main class="py-6 bg-surface-secondary">
                     <div class="container-fluid">
                         <!-- Card stats -->
@@ -152,7 +160,7 @@
                                         </div>
                                         <div class="mt-2 mb-0 text-sm">
                                             <span class="badge badge-pill bg-soft-success text-success me-2">
-                                                <i class="bi bi-check-circle"></i> Validée
+                                                <i class="bi bi-check-circle"></i>Validée
                                             </span>
                                             <%--<span class="text-nowrap text-xs text-muted">Since last month</span>--%>
                                         </div>

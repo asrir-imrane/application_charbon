@@ -25,6 +25,7 @@
 
 
 
+
 $(function () {
 	$('[data-dismiss="modal"]').click(function () {
 		$('.modal').modal('hide');
@@ -76,11 +77,17 @@ $(".delete-station").click(function (e) {
 $(".details-station").click(function (e) {
 	e.preventDefault();
 	var Stationname = $(this).data('stationname');
+	var Stationadress = $(this).data('stationadress');
+	var Stationphone = $(this).data('stationphone');
 	$('#modal-title').html(Stationname);
+	$('#adresse').html(Stationadress);
+	$('#telephone').html(Stationphone);
 	if ($(this).hasClass("details-station")) {
 		$("#showdetailsModal").modal("show");
 	}
 });
+
+
 
 
 $(".edit-PV").click(function (e) {
@@ -167,6 +174,34 @@ $(".delete-CS").click(function (e) {
 	}
 });
 
+$(".edit-bateau").click(function (e) {
+	e.preventDefault();
+
+	var IdSCentrale = $(this).data('idscentrale');
+	var Stock_Initial = $(this).data('stockinitial');
+	var Stock_Final = $(this).data('stockfinal');
+	var Stock_Ajustement = $(this).data('stockajustement');
+	var Stock_Date = $(this).data('stockdate');
+	$('#Id_SCentrale').val(IdSCentrale);
+	$('#stock_initial').val(Stock_Initial);
+	$('#stock_final').val(Stock_Final);
+	$('#stock_ajustement').val(Stock_Ajustement);
+	$('#stock_date').val(Stock_Date);
+	if ($(this).hasClass("edit-CS")) {
+		$("#modifierCS").modal("show");
+	}
+});
+$(".delete-bateau").click(function (e) {
+	e.preventDefault();
+
+	var IdBateau = $(this).data('bateauid');
+
+	$('#id_bateau').val(IdBateau);
+
+	if ($(this).hasClass("delete-bateau")) {
+		$("#supprimerBateau").modal("show");
+	}
+});
 
 
 

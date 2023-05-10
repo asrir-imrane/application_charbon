@@ -41,25 +41,25 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="stock_initial" class="form-label">Stock initial :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="stock_initial" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="stock_final" class="form-label">Stock Final :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="stock_final" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="stock_ajustement" class="form-label">Stock Ajustement :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="stock_ajustement" runat="server" required="required" />
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="stock_date" class="form-label">Stock Date :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="stock_date" runat="server" required="required" />

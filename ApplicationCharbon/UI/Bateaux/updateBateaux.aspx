@@ -7,6 +7,31 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Modifier Bateau</title>
+    <script>
+        $(".edit-bateau").click(function (e) {
+            e.preventDefault();
+
+            var IdBateau = $(this).data('bateauid');
+
+            $('#id_bateauED').val(IdBateau);
+            if ($(this).hasClass("edit-bateau")) {
+                $("#modifierBateau").modal("show");
+            }
+        });
+        $(".delete-bateau").click(function (e) {
+            e.preventDefault();
+
+            var IdBateau = $(this).data('bateauid');
+
+            $('#id_bateau').val(IdBateau);
+
+            if ($(this).hasClass("delete-bateau")) {
+                $("#supprimerBateau").modal("show");
+            }
+        });
+
+    </script>
+
 </head>
 <body>
     <div id="modifierBateau" class="modal fade">
@@ -15,21 +40,24 @@
                 <form runat="server">
                     <div class="modal-header">
                         <h4 class="modal-title">Modifier Bateau</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="text" class="form-control" id="id_bateauED" runat="server" required="required" style="display: none;" />
                         </div>
-
                         <div class="form-group">
-                            <label>nom_bateau</label>
+                            <label>Nom Bateau</label>
                             <input type="text" class="form-control" id="nom_bateauED" runat="server" required="required" />
                         </div>
 
+
                         <div class="form-group">
-                            <label>tonnage</label>
-                            <input type="text" class="form-control" id="tonnageED" runat="server" required="required" />
+                            <label>Tonnage</label>
+                            <div class="form-group">
+                                <label for="tonnageED">Tonnage</label>
+                                <input type="text" class="form-control" id="tonnageED" name="tonnageED" runat="server" required="required" pattern="\d+" title="Entrer le tonnage " />
+                            </div>
                         </div>
                         <div class="form-group">
                             <label>nom Origine</label>
@@ -65,8 +93,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler" />
-                        <asp:Button type="submit" Text="Modifier" class="btn btn-primary" OnClick="EditButton_Bateau_Click" runat="server"></asp:Button>
+                        <asp:Button type="submit" Text="Modifier Station" class="btn btn-success" OnClick="EditButton_Bateau_Click" runat="server"></asp:Button>
+                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
                 </form>
             </div>

@@ -32,12 +32,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="id_station" class="form-label">ID du Station :</label>
+                            <label for="id_station" class="label">ID du Station :</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="idstation" name="id_station" readonly="readonly" value="" />
                             </div>
-                            <p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                         </div>
+                        <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                     </div>
 
                     <div class="modal-footer">

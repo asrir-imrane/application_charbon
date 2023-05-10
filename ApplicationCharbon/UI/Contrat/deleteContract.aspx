@@ -22,7 +22,7 @@
 							<input type="hidden" class="form-control" id="Id_ContratSupp" runat="server" required="required"/>
 							<input type="hidden" class="form-control" id="Id_ContratDSupp" runat="server" required="required"/>
 						</div>	
-						<p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
+						                        <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
 		
 					</div>
 					<div class="modal-footer">

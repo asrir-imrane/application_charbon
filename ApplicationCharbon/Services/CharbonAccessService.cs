@@ -99,7 +99,12 @@ namespace ApplicationCharbon.Services
             var va = _context.Origine.SqlQuery("SELECT * from Origine").ToList();
             return va;
         }
-
+        //Origine Bateau
+        public List<Types> GetMyDataType()
+        {
+            var va = _context.Types.SqlQuery("SELECT * from Types").ToList();
+            return va;
+        }
         //Bateau
         public List<VBateau> GetMyDataBateau()
         {

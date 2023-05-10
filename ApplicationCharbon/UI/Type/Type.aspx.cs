@@ -16,7 +16,7 @@ namespace ApplicationCharbon.UI
         protected void AddButton_Type_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string TYPE = type.Value;
+            string TYPE = nomtype.Text;
 
             // Créer un nouvel objet type avec les valeurs de champ de formulaire
             Types newType = new Types
@@ -32,7 +32,7 @@ namespace ApplicationCharbon.UI
 
             }
 
-            Response.Redirect("index.aspx#typee");
+            Response.Redirect("Type.aspx");
         }
 
       

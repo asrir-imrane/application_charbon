@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../../Assets/CSS/Style.css" />
     <link rel="stylesheet" href="../../Assets/CSS/index.css" />
+    <link rel="stylesheet" href="../Assets/CSS/parametre.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Add Bootstrap JavaScript and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -29,7 +31,28 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="../../Assets/Scripts/script.js"></script>
     <script src="../../Assets/Scripts/nav.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <scriptr>
+        <script>
+            AOS.init();
+            window.onscroll = () => {
+                toggleTopButton();
+            }
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
+            function toggleTopButton() {
+                if (document.body.scrollTop > 20 ||
+                    document.documentElement.scrollTop > 20) {
+                    document.getElementById('back-to-up').classList.remove('d-none');
+                } else {
+                    document.getElementById('back-to-up').classList.add('d-none');
+                }
+            }
+        </script>
+
+    </scriptr>
     <!-- BOX ICONS CSS-->
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
 </head>
@@ -40,7 +63,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow p-3 mb-5 bg-white rounded">
                 <div class="container-fluid">
                     <!-- Website logo -->
-                    <img src="../Assets/IMG/onee.png" alt="ONE" href="index.aspx" style="width: 259px; height: 60px;" />
+                    <img src="../Assets/IMG/logo.png" alt="ONE" class="logo" />
                     <%-- <a class="navbar-brand" href="index.aspx">Application Charbon</a>--%>
                     <!-- Toggler button for mobile view -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,7 +125,7 @@
 
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action active" aria-current="true">
                             <i class="bi bi-sliders"></i>Paramètre
-                            </a>
+                        </a>
                         <ul class="submenu">
                             <li><a href="#">Station</a></li>
                             <li><a href="#">Origine</a></li>
@@ -122,7 +145,7 @@
                             <i class="bi bi-file-earmark-post"></i>Contrat
                         </a>
                     </div>
-            </div>
+                </div>
             </div>
 
 
@@ -132,92 +155,81 @@
 
             <div class="col-md-9 col-lg-10 main-content py-5">
 
-                <%--<div class="jumbotron jumbotron-fluid shadow p-3 mb-5 bg-body rounded">
+                <section id="more-services" class="more-services">
                     <div class="container">
-                        <h1 class="display-4">Paramètrage</h1>
-                    </div>
-                </div>--%>
-
-                <h2>Paramètrage</h2>
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="cards">
-                        <div class="imgBx">
-                            <img src="<%--../Assets/IMG/central.png--%>" alt="" />
+                        <div class="section-title" data-aos="fade-up">
+                            <h2>Paramètre</h2>
+                            <p class="section">
+                                Un ensemble de services offerts pour la gestion de contrats relatifs aux stations, origines, fournisseurs, bateaux et types.
+                            </p>
                         </div>
 
-                        <div class="content">
-                            <div class="details">
-                                <h2>Station</h2>
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-md-6 d-flex align-items-stretch">
+                                <div class="card" style='background-image: url("../Assets/IMG/central.png");' data-aos="fade-up" data-aos-delay="50">
+                                    <div class="card-body" onclick="window.location.href='Station.aspx'">
+                                        <h5 class="card-title">Station</h5>
+                                        <p class="card-text">
+                                            Avec la section « Station », vous pouvez gérer les stations de charbon existantes en ajoutant, supprimant et modifiant leurs informations. Elle fournit également des détails sur les stations.
+   
+                                        </p>
+                                    </div>
 
-                                <div class="actionBtn">
-                                    <a href="Station.aspx">Voir Plus</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="imgBx">
-                            <img src="<%--../Assets/IMG/Map-01-01.png--%>" alt="" />
-                        </div>
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                                <div class="card" style='background-image: url("../Assets/IMG/Map-01-01.png");' data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body" onclick="window.location.href='Origine/Origin.aspx'">
+                                        <h5 class="card-title">Origine</h5>
+                                        <p class="card-text">
+                                            Avec la section « Origine », vous pouvez gérer les origines. Elle permet d'ajouter, de supprimer et de modifier des informations sur les origines existantes.
+                                        </p>
+                                    </div>
+                                </div>
 
-                        <div class="content">
-                            <div class="details">
-                                <h2>Origine</h2>
+                            </div>
 
-                                <div class="actionBtn">
-                                    <a href="Origine/Origin.aspx">Voir Plus</a>
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                                <div class="card" style='background-image: url("../Assets/IMG/Fournisseur.png");' data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body" onclick="window.location.href='Fournisseur/Fourni.aspx'">
+                                        <h5 class="card-title">Fournisseur</h5>
+                                        <p class="card-text">
+                                            Avec la section « Fournisseur », vous pouvez gérer une liste de fournisseurs et permet de les ajouter, de les modifier et de les supprimer.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="imgBx">
-                            <img src="<%--../Assets/IMG/Fournisseur.png--%>" alt="" />
-                        </div>
-
-                        <div class="content">
-                            <div class="details">
-                                <h2>Fournisseur</h2>
-                                <div class="actionBtn">
-                                    <a href="Fournisseur/Fourni.aspx">Voir Plus</a>
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                                <div class="card" style='background-image: url("../Assets/IMG/boat.png");background-size: cover;' data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body" onclick="window.location.href='Bateaux/Bateaux.aspx'">
+                                        <h5 class="card-title">Bateaux</h5>
+                                        <p class="card-text">
+                                            Cette section « Bateaux », vous affiche une liste de bateaux avec leurs détails et offre la possibilité de les ajouter, les supprimer ou de les modifier.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cards">
-                        <div class="imgBx">
-                            <img src="<%--../Assets/IMG/boat.png--%>" alt="" />
-                        </div>
 
-                        <div class="content">
-                            <div class="details">
-                                <h2>Bateaux</h2>
-                                <div class="actionBtn">
-                                    <a href="Bateaux/Bateaux.aspx">Voir Plus</a>
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                                <div class="card" style='background-image: url("../Assets/IMG/Combustible.png");' data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body" onclick="window.location.href='Type/Type.aspx'">
+                                        <h5 class="card-title">Type</h5>
+                                        <p class="card-text">
+                                            Avec la section « Type », vous pouvez gérer une liste de type et permet de les ajouter, de les modifier et de les supprimer.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-                    <div class="cards">
-                        <div class="imgBx">
-                            <img src="<%--../Assets/IMG/Combustible.png--%>" alt="" />
-                        </div>
-
-                        <div class="content">
-                            <div class="details">
-                                <h2>Type</h2>
-                                <div class="actionBtn">
-                                    <a href="Type/Type.aspx">Voir Plus</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                </section>
             </div>
+
+            <button class="back-to-top" onclick="scrollToTop()" id="back-to-up">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            </button>
         </div>
     </div>
-
 </body>
 </html>

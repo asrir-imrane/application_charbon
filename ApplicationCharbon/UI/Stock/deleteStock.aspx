@@ -36,7 +36,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="id_stock" name="id_stock" readonly="readonly" value="" />
                             </div>
-                            <p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
+                                                    <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                         </div>
                     </div>
 

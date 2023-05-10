@@ -18,10 +18,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="hidden" class="form-control" id="Id_bateauSupp" runat="server" required="required" />
+                            <label for="id_bateau" class="form-label">ID du bateau :</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="Id_bateauSupp" name="Id_bateauSupp" readonly="readonly" value="" />
+                            </div>
+                            <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                         </div>
-                        <p><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
-
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler" />
@@ -29,7 +31,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+    </div>
     </div>
 </body>
 </html>

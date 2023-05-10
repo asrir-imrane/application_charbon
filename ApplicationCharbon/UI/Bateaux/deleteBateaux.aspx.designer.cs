@@ -13,14 +13,5 @@ namespace ApplicationCharbon.UI.Bateaux
 
     public partial class deleteBateaux
     {
-
-        /// <summary>
-        /// Id_bateauSupp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Id_bateauSupp;
     }
 }

@@ -107,11 +107,12 @@
                             <i class="bi bi-sliders"></i>Paramètre
                         </a>
                         <ul class="submenu">
-                            <li><a href="#">Station</a></li>
+                             <li><a href="#">Station</a></li>
                             <li><a href="#">Origine</a></li>
                             <li><a href="#">Fournisseur</a></li>
                             <li><a href="#">Bateaux</a></li>
                             <li><a href="#">Type</a></li>
+                            <li><a href="#">Stock</a></li>
                         </ul>
 
 

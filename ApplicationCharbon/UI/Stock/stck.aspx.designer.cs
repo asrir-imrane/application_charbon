@@ -42,13 +42,13 @@ namespace ApplicationCharbon.UI
         protected global::System.Web.UI.WebControls.TextBox livraison;
 
         /// <summary>
-        /// id_bateau control.
+        /// nombateauliste control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox id_bateau;
+        protected global::System.Web.UI.WebControls.DropDownList nombateauliste;
 
         /// <summary>
         /// decharge control.

@@ -15,7 +15,12 @@ namespace ApplicationCharbon.UI.Login
             var context = new UtilisateurContext();
             Utilisateurs utilisateur = context.Utilisateurs.FirstOrDefault(u => u.nom_utilisateur == username && u.mot_de_passe == password);
             return utilisateur != null;
+           
+
         }
+
+        
+
     }
-    
+
 }

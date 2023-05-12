@@ -204,7 +204,25 @@ $(".delete-bateau").click(function (e) {
 });
 
 
+$(".edit-type").click(function (e) {
+	e.preventDefault();
+	var IdType = $(this).data('typeid');
+	$('#id_type').val(IdType);
+	if ($(this).hasClass("edit-type")) {
+		$("#modifierType").modal("show");
+	}
+});
+$(".delete-type").click(function (e) {
+	e.preventDefault();
 
+	var IdType = $(this).data('typeid');
+
+	$('#id_typesupp').val(IdType);
+
+	if ($(this).hasClass("delete-type")) {
+		$("#supprimerType").modal("show");
+	}
+});
 
 //remplir les champs du formulaire (Modifier AO)
 function remplirFormulaireAO(id, numAO, type, tonnage, nbr_bateaux, date_creation, date_Emission, date_livraison, observation, statut) {
@@ -246,23 +264,5 @@ function suppressionContrat(id1, id2) {
 
 
 
-//remplir les champs du formulaire (Modifier Bateau)
-function remplirFormulaireBateau(nom, tg, vq, ct, fd, dg, pr, assr, etat, idBT) {
-	document.getElementById("id_bateauED").value = idBT;
-	document.getElementById("nom_bateauED").value = nom;
-	document.getElementById("tonnageED").value = tg;
-	document.getElementById("valeur_calorifiqueED").value = vq;
-	document.getElementById("coutED").value = ct;
-	document.getElementById("frais_douaneED").value = fd;
-	document.getElementById("dechargeED").value = dg;
-	document.getElementById("prix_renduED").value = pr;
-	document.getElementById("assuranceED").value = assr;
-	document.getElementById("etatED").value = etat;
-}
-
-//Suppression Bateau
-function suppressionBateau(id) {
-	document.getElementById("Id_bateauSupp").value = id;
-}
 
 

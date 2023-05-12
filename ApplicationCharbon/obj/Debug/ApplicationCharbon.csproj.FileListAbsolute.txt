@@ -133,3 +133,9 @@ C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Micros
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.xml
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Newtonsoft.Json.xml
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus.Interfaces.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus.System.Drawing.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.IO.RecyclableMemoryStream.xml

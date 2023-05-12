@@ -16,8 +16,8 @@ namespace ApplicationCharbon.UI.Bateaux
         {
             if (!IsPostBack)
             {
-                
 
+                FillcontratDropdown();
                 FillOrigineDropdown();
             }
         }
@@ -57,7 +57,6 @@ namespace ApplicationCharbon.UI.Bateaux
             // Récupérer les valeurs des champs du formulaire
             
             int Idct = Convert.ToInt32(nomcontratListe.SelectedValue);
-
             string nomBateau = nom_bateau.Value;
 
             string Tonnage = tonnage.Value;

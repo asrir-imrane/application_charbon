@@ -157,12 +157,12 @@
                     <div class="cardss">
                         <div class="box">
                             <div class="content">
-                                <a type="button" class="btn-close delete-origin" href="#" data-originid="<%= tp.id_type %>" data-originname="<%= tp.type %>" data-dismiss="modal" aria-label="Close">
-                                    <span class="delete-origin" href="#" data-originid="<%= tp.id_type %>" data-originname="<%= tp.type %>"></span>
+                                <a type="button" class="btn-close delete-type" href="#" data-typeid="<%= tp.id_type %>" data-typename="<%= tp.type %>" data-dismiss="modal" aria-label="Close">
+                                    <span class="delete-type" href="#" data-typeid="<%= tp.id_type %>" data-typename="<%= tp.type %>"></span>
                                 </a>
-                                <a type="button" class=" edit-origin" href="#" data-originid="<%= tp.id_type %>" data-originname="<%= tp.type %>">
+                                <a type="button" class=" edit-type" href="#" data-typeid="<%= tp.id_type %>" data-typename="<%= tp.type %>">
                                     <i class="btn-edit bi bi-pen me-2"></i>
-                                    <span class="edit-origin" href="#" data-originid="<%= tp.id_type %>" data-originname="<%= tp.type %>"></span>
+                                    <span class="edit-type" href="#" data-typeid="<%= tp.id_type %>" data-typename="<%= tp.type %>"></span>
                                 </a>
                                 <h2>ID : 0<%= tp.id_type %></h2>
                                 <h3>Type : </h3>

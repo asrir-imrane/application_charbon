@@ -200,7 +200,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                                <div class="card" style='background-image: url("../Assets/IMG/boat.png");background-size: cover;' data-aos="fade-up" data-aos-delay="100">
+                                <div class="card" style='background-image: url("../Assets/IMG/boat.png"); background-size: cover;' data-aos="fade-up" data-aos-delay="100">
                                     <div class="card-body" onclick="window.location.href='Bateaux/Bateaux.aspx'">
                                         <h5 class="card-title">Bateaux</h5>
                                         <p class="card-text">
@@ -216,6 +216,17 @@
                                         <h5 class="card-title">Type</h5>
                                         <p class="card-text">
                                             Avec la section « Type », vous pouvez gérer une liste de type et permet de les ajouter, de les modifier et de les supprimer.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                                <div class="card" style='background-image: url("../Assets/IMG/stock.png");' data-aos="fade-up" data-aos-delay="100">
+                                    <div class="card-body" onclick="window.location.href='Stock/stck.aspx'">
+                                        <h5 class="card-title">Stock</h5>
+                                        <p class="card-text">
+                                            Avec la section « Stock », vous pouvez gérer le stock de charbon en affichant des données actuelles et en permettant à l'utilisateur d'ajouter, modifier ou supprimer.
                                         </p>
                                     </div>
                                 </div>

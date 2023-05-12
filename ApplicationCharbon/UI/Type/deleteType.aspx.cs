@@ -14,14 +14,13 @@ namespace ApplicationCharbon.UI
     {
         protected void DeleteButton_Type_Click(object sender, EventArgs e)
         {
-            string id = id_type.Value;
-            int num = int.Parse(id);
-
+            int IdType = Int32.Parse(Request.Form["id_typesupp"]);
             delete Delete = new delete();
-            Delete.SupprimerType(num);
+            
+            Delete.SupprimerType(IdType);
 
             // Rediriger vers la page d'index après la suppression du type
-            Response.Redirect("index.aspx#typee");
+            Response.Redirect("Type.aspx");
 
         }
     }

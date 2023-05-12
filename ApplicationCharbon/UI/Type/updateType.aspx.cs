@@ -15,14 +15,13 @@ namespace ApplicationCharbon.UI
         {
 
             // Récupérer les valeurs des champs du formulaire
-            string id = id_type.Value;
-            string TYPE = typeEdit.Value;
-            int num = int.Parse(id);
-
+            int IdType = Int32.Parse(Request.Form["id_type"]);
+           
+            string TYPE = typeEdit.Value; 
             // Récupérer le type existant de la base de données
             using (var db = new CharbonContext())
                 {
-                    Types existingType = db.Types.Find(num);
+                    Types existingType = db.Types.Find(IdType);
 
                    // Mettre à jour les propriétés du type avec les nouvelles valeurs
                     existingType.type = TYPE;
@@ -33,7 +32,7 @@ namespace ApplicationCharbon.UI
                 }
 
             // Rediriger vers la page d'index après une mise à jour réussie du type
-            Response.Redirect("index.aspx#typee");
+            Response.Redirect("Type.aspx");
 
 
 

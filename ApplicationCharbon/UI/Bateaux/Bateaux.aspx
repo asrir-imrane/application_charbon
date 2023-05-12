@@ -90,10 +90,6 @@
                             </li>
                         </ul>
                     </div>
-
-
-
-
                 </div>
             </nav>
             <div class="col-md-3 col-lg-2">
@@ -112,6 +108,7 @@
                             <li><a href="#">Fournisseur</a></li>
                             <li><a href="#">Bateaux</a></li>
                             <li><a href="#">Type</a></li>
+                            <li><a href="#">Stock</a></li>
                         </ul>
 
 

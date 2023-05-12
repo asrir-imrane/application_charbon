@@ -6,19 +6,7 @@
 <head runat="server">
     <title></title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../Assets/CSS/Style.css" />
-    <link rel="stylesheet" href="../Assets/CSS/index.css" />
-    <link rel="stylesheet" href="../Assets/CSS/StyleSheet.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../Assets/Scripts/nav.js"></script>
-    <script src="../Assets/Scripts/script.js"></script>
+    <script src="../../Assets/Scripts/script.js"></script>
 
 </head>
 <body>
@@ -70,13 +58,13 @@
                     <div class="modal-footer">
 
                         <asp:Button ID="btnModifier" runat="server" Text="Modifier stock" CssClass="btn btn-warning" OnClick="EditButton_Stock_Click" />
-                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" OnClick="Annuler_Click" />
+                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
-   <!-- Supprimer Stock -->
+    <!-- Supprimer Stock -->
     <% Server.Transfer("deleteStock.aspx");%>
 </body>
 </html>

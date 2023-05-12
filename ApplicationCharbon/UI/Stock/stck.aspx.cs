@@ -13,27 +13,37 @@ namespace ApplicationCharbon.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string IdBateau = Request.QueryString["id"];
-            int id;
 
-
-            if (int.TryParse(IdBateau, out id) && id > 0)
+            if (!IsPostBack)
             {
-                // Vérifiez que l'identifiant de la ligne est valide et effectuez toutes les opérations nécessaires
-                id_bateau.Text = IdBateau;
+
+
+                FillBateauDropdown();
             }
-            else
+        }
+
+
+
+        private void FillBateauDropdown()
+        {
+            using (var contexte = new CharbonContext())
             {
-                Response.Redirect("erreur.aspx");
-                // Response.Redirect("index.aspx");
+                var Bateaus = contexte.Bateau.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                nombateauliste.DataSource = Bateaus;
+                nombateauliste.DataTextField = "nom_bateau";
+                nombateauliste.DataValueField = "id_bateau";
+                nombateauliste.DataBind();
             }
         }
 
         protected void AddButton_Stock_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string idBateauAdd = id_bateau.Text;
-            int IdBt = int.Parse(idBateauAdd);
+           
+            int idBateauAdd = Convert.ToInt32(nombateauliste.SelectedValue);
+            
 
             DateTime dateStock = DateTime.Parse(date.Text);
 
@@ -52,7 +62,7 @@ namespace ApplicationCharbon.UI
             // Créer un nouvel objet AO avec les valeurs de champ de formulaire
             Stock newStock = new Stock
             {
-                id_bateau = IdBt,
+                id_bateau = idBateauAdd,
                 date = dateStock,
                 consommation = CS,
                 livraison = LS,
@@ -87,8 +97,8 @@ namespace ApplicationCharbon.UI
 
             /* Page.ClientScript.RegisterStartupScript(this.GetType(), "showMessage", "<script>$('#message').show();</script>");
              Response.Redirect("index.aspx#CS");*/
-            string IdBateau = Request.QueryString["id"];
-            Response.Redirect("stck.aspx?id=" + IdBateau);
+           
+            Response.Redirect("stck.aspx");
 
         }
     }

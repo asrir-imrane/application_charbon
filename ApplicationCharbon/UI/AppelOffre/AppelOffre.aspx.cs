@@ -13,20 +13,8 @@ namespace ApplicationCharbon.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string id_planning = Request.QueryString["id"];
-            int id;
-
-
-            if (int.TryParse(id_planning, out id) && id > 0)
-            {
-                // Vérifiez que l'identifiant de la ligne est valide et effectuez toutes les opérations nécessaires
-                id_planningAdd.Value = id_planning;
-            }
-            else
-            {
-                Response.Redirect("erreur.aspx");
-                // Response.Redirect("index.aspx");
-            }
+           
+            
         }
         protected void AddButton_AO_Click(object sender, EventArgs e)
         {
@@ -55,7 +43,7 @@ namespace ApplicationCharbon.UI
             Appel_Offre newAO = new Appel_Offre
             {
                 n_appel_offre = nAO,
-                id_planning = IdPg, 
+                id_planning = IdPg,
                 tonnage = Tng,
                 date_Emission = dateEmission,
                 date_livraison = dateLivraison,
@@ -66,35 +54,24 @@ namespace ApplicationCharbon.UI
                 statut = Statut
             };
 
-            // Ajouter le nouvelle AO à la base de données
-            try
-            {
-                // Ajouter le nouvelle AO à la base de données
-                using (var db = new CharbonContext())
-                {
-                    db.Appel_Offre.Add(newAO);
-                    db.SaveChanges();
-                }
 
-                
-            }
-            catch (DbEntityValidationException ex)
+            // Ajouter le nouvelle AO à la base de données
+            using (var db = new CharbonContext())
             {
-                foreach (var validationErrors in ex.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
+                db.Appel_Offre.Add(newAO);
+                db.SaveChanges();
             }
+
+
+
+
 
 
 
             /* Page.ClientScript.RegisterStartupScript(this.GetType(), "showMessage", "<script>$('#message').show();</script>");
              Response.Redirect("index.aspx#CS");*/
-            string IdPlanning = Request.QueryString["id"];
-            Response.Redirect("AppelOffre.aspx?id=" + IdPlanning);
+
+            Response.Redirect("AppelOffre.aspx");
 
         }
     }

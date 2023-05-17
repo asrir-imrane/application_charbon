@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using ClosedXML.Excel;
+
+
 
 namespace ApplicationCharbon.UI
 {
@@ -13,18 +17,78 @@ namespace ApplicationCharbon.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            
+            if (!IsPostBack)
+            {
+
+                FillTypeDropdown();
+                FillidPlanningDropdown();
+            }
         }
+
+
+
+        private void FillTypeDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomType = contexte.Types.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                nomTypeListe.DataSource = NomType;
+                nomTypeListe.DataTextField = "type";
+                nomTypeListe.DataValueField = "type";
+                nomTypeListe.DataBind();
+            }
+        }
+        private void FillidPlanningDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var idPlanning = contexte.Planing_Previsionnel.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                idPlanningListe.DataSource = idPlanning;
+                idPlanningListe.DataTextField = "id_planning";
+                idPlanningListe.DataValueField = "id_planning";
+                idPlanningListe.DataBind();
+            }
+        }
+
+
+        protected void ExportToExcelButton_Click(object sender, EventArgs e)
+        {
+            // Perform the necessary logic to retrieve the table data and generate the HTML table code
+
+            // Set the response headers to indicate that an Excel file will be downloaded
+            Response.Clear();
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=table_data.xlsx");
+
+            // Write the Excel file content to the response
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Table Data");
+                // Add the table data to the worksheet
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    stream.WriteTo(Response.OutputStream);
+                }
+            }
+
+            Response.End();
+        }
+
+
         protected void AddButton_AO_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string IdPlanningAdd = id_planningAdd.Value;
-            int IdPg = int.Parse(IdPlanningAdd);
 
-            string nAO = n_appel_offre.Value;
-            string Tp = typee.Value;
 
+
+            string Tp = nomTypeListe.SelectedValue;
+            int idplanning = Convert.ToInt32(idPlanningListe.SelectedValue);
             string Tonnage = tonnage.Value;
             float Tng = float.Parse(Tonnage);
 
@@ -36,14 +100,14 @@ namespace ApplicationCharbon.UI
             DateTime dateCreation = DateTime.Parse(date_creation.Value);
 
             string Observation = observation.Value;
-            string Statut = statut.Value;
+            string Statut = Request.Form["status"];
+
 
 
             // Créer un nouvel objet AO avec les valeurs de champ de formulaire
             Appel_Offre newAO = new Appel_Offre
             {
-                n_appel_offre = nAO,
-                id_planning = IdPg,
+                id_planning = idplanning,
                 tonnage = Tng,
                 date_Emission = dateEmission,
                 date_livraison = dateLivraison,

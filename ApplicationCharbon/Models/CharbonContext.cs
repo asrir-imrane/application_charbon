@@ -22,8 +22,7 @@ namespace ApplicationCharbon.Models
         }
 
         public virtual DbSet<Appel_Offre> Appel_Offre { get; set; }
-        public virtual DbSet<AppelOffre_Details> AppelOffre_Details { get; set; }
-        public virtual DbSet<Association> Association { get; set; }
+
         public virtual DbSet<Bateau> Bateau { get; set; }
         public virtual DbSet<Centrale_Stock> Centrale_Stock { get; set; }
         public virtual DbSet<Contrat> Contrat { get; set; }
@@ -34,10 +33,12 @@ namespace ApplicationCharbon.Models
         public virtual DbSet<Station> Station { get; set; }
         public virtual DbSet<station_type> station_type { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
-        public virtual DbSet<Stock_Previsionnel> Stock_Previsionnel { get; set; }
+       
         public virtual DbSet<Types> Types { get; set; }
         public virtual DbSet<MaVue> MaVue { get; set; }
         public virtual DbSet<VBateau> VBateau { get; set; }
         public virtual DbSet<VContrat> VContrat { get; set; }
+        public virtual DbSet<VueContrat> VueContrat { get; set; }
+        public virtual DbSet<vue_origine_plus_utilisé> vue_origine_plus_utilisé { get; set; }
     }
 }

@@ -54,10 +54,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="modal-footer">
-
-                        <asp:Button ID="btnModifier" runat="server" Text="Modifier stock" CssClass="btn btn-warning" OnClick="EditButton_Stock_Click" />
+                        <asp:Button type="submit" Text="Modifier Station" class="btn btn-success" OnClick="EditButton_Stock_Click" runat="server"></asp:Button>
                         <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
                     </div>
                 </form>

@@ -23,6 +23,7 @@ namespace ApplicationCharbon.Models
         public int id_planning { get; set; }
         public string annee { get; set; }
         public int id_station { get; set; }
+        public string fichier_excel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Appel_Offre> Appel_Offre { get; set; }

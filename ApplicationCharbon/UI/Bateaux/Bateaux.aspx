@@ -153,13 +153,13 @@
                                     <div class="card_image">
                                         <img class="boat" src="../../Assets/IMG/36586_large.jpg" alt="" />
                                         <span class="card_id"><span>#</span>01</span>
-                                        <button type="button" class="btn-close delete-bateau" href="#" data-dismiss="modal" aria-label="Close">
+                                        <a type="button" class="btn-close delete-bateau" href="#" data-dismiss="modal" aria-label="Close">
                                             <span class="delete-bateau" href="#"></span>
-                                        </button>
-                                        <button type="button" class="edit-bateau" href="#">
+                                        </a>
+                                        <a type="button" class="edit-bateau" href="#">
                                             <i class="btn-edit bi bi-pen me-2"></i>
                                             <span class="edit-bateau" href="#"></span>
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="card_content">
                                         <h2 class="card_title"><%= tp.nom_bateau %></h2>

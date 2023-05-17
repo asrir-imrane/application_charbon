@@ -18,5 +18,6 @@ namespace ApplicationCharbon.Models
         public string annee { get; set; }
         public int id_station { get; set; }
         public string nom_station { get; set; }
+        public string fichier_excel { get; set; }
     }
 }

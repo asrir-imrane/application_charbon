@@ -12,16 +12,14 @@ namespace ApplicationCharbon.UI
     {
         protected void DeleteButton_AO_Click(object sender, EventArgs e)
         {
-            string Id_AOffre = Id_AOSupp.Value;
-            int IdAo = int.Parse(Id_AOffre);
-
+            int Id_AOffre = Int32.Parse(Request.Form["Id_AOSupp"]);
+           
             delete Delete = new delete();
-            Delete.SupprimerAppelOffre(IdAo);
+            Delete.SupprimerAppelOffre(Id_AOffre);
 
-            // Rediriger vers la page d'index après la suppressionSystem.FormatException : 'Le format de la chaîne d'entrée est incorrect.'
-            // Response.Redirect("index.aspx#CS");
-            string IdPlanning = Request.QueryString["id"];
-            Response.Redirect("AppelOffre.aspx?id=" + IdPlanning);
+            
+         
+            Response.Redirect("AppelOffre.aspx");
         }
     }
 }

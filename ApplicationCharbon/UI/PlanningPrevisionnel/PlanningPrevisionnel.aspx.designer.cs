@@ -15,22 +15,22 @@ namespace ApplicationCharbon.UI
     {
 
         /// <summary>
-        /// ajouterPV control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ajouterPV;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
 
         /// <summary>
-        /// id_stationAdd2 control.
+        /// nomstationListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText id_stationAdd2;
+        protected global::System.Web.UI.WebControls.DropDownList nomstationListe;
 
         /// <summary>
         /// annee control.
@@ -39,6 +39,15 @@ namespace ApplicationCharbon.UI
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText annee;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect annee;
+
+        /// <summary>
+        /// oFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile oFile;
     }
 }

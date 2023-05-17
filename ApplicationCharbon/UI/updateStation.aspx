@@ -36,9 +36,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="id_station" class="form-label">ID du Station </label>
-
                             <input type="text" class="form-control" id="id_station" name="id_station" readonly="readonly" value="" />
-
                         </div>
                         <div class="form-group">
                             <label for="nomstation" class="form-label">Nom du Station </label>

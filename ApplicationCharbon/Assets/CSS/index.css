@@ -22,6 +22,24 @@ body {
 body {
     overflow-x: hidden;
 }
+.table_PV{
+    width:1550px;
+}
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 2000px;
+    margin: 30px auto;
+}
+.table-responsive {
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -45,6 +63,7 @@ section {
     padding-bottom: 30px;
     margin-bottom: 100px;
     margin-top: 90px;
+   
 }
 
     .section-title h2 {
@@ -53,6 +72,7 @@ section {
         text-transform: uppercase;
         position: relative;
         color: #222222;
+        margin-top: 90px;
     }
 
         .section-title h2::before, .section-title h2::after {
@@ -641,7 +661,7 @@ li.breadcrumb-item a {
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 30px auto;
 }
 
     /*origin*/
@@ -976,6 +996,8 @@ li.breadcrumb-item a {
             background-color: #fff;
         }
 
-
-
-
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

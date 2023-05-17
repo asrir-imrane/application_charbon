@@ -145,11 +145,7 @@
                     </button>
 
                 </nav>
-
-
-
-
-
+               
                 <div class="container">
                     <%@ Import Namespace="ApplicationCharbon.Services" %>
                     <% var service = new CharbonAccessService(); %>

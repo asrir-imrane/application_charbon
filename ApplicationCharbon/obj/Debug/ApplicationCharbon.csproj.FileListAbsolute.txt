@@ -139,3 +139,12 @@ C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\EPPlus.xml
 C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\Microsoft.IO.RecyclableMemoryStream.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\ClosedXML.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\DocumentFormat.OpenXml.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\ExcelNumberFormat.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\FastMember.Signed.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\System.IO.Packaging.dll
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\ClosedXML.pdb
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\ClosedXML.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\DocumentFormat.OpenXml.xml
+C:\Users\asrir\OneDrive\Bureau\Application_Charbon\ApplicationCharbon\bin\ExcelNumberFormat.xml

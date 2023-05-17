@@ -1,25 +1,24 @@
 ﻿$(document).ready(function () {
-	// Activate tooltips
-	$('[data-toggle="tooltip"]').tooltip();
 
-	// Filter table rows based on searched term
-	$("input[type='search']").on("keyup", function () {
-		var term = $(this).val().toLowerCase();
-		$("table tbody tr").each(function () {
-			var found = false;
-			$(this).find("td").each(function () {
-				if ($(this).text().toLowerCase().indexOf(term) > -1) {
-					found = true;
-					return false;
-				}
-			});
-			if (found) {
-				$(this).show();
-			} else {
-				$(this).hide();
-			}
-		});
-	});
+
+    // Filter table rows based on searched term
+    $("input[type='search']").on("keyup", function () {
+        var term = $(this).val().toLowerCase();
+        $("table tbody tr").each(function () {
+            var found = false;
+            $(this).find("td").each(function () {
+                if ($(this).text().toLowerCase().indexOf(term) > -1) {
+                    found = true;
+                    return false;
+                }
+            });
+            if (found) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
 
 });
 
@@ -27,240 +26,264 @@
 
 
 $(function () {
-	$('[data-dismiss="modal"]').click(function () {
-		$('.modal').modal('hide');
-	});
+    $('[data-dismiss="modal"]').click(function () {
+        $('.modal').modal('hide');
+    });
 });
 
 $(".edit-fournisseur").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var fournisseurid = $(this).data('fournisseurid');
-	$('#id_fournisseurED').val(fournisseurid);
-	if ($(this).hasClass("edit-fournisseur")) {
-		$("#modifierFournisseur").modal("show");
-	}
+    var fournisseurid = $(this).data('fournisseurid');
+    $('#id_fournisseurED').val(fournisseurid);
+    if ($(this).hasClass("edit-fournisseur")) {
+        $("#modifierFournisseur").modal("show");
+    }
 });
 
 $(".delete-fournisseur").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var fournisseurid = $(this).data('fournisseurid');
-	$('#id_fournisseur').val(fournisseurid);
-	if ($(this).hasClass("delete-fournisseur")) {
-		$("#supprimerFournisseur").modal("show");
-	}
+    var fournisseurid = $(this).data('fournisseurid');
+    $('#id_fournisseur').val(fournisseurid);
+    if ($(this).hasClass("delete-fournisseur")) {
+        $("#supprimerFournisseur").modal("show");
+    }
 });
 
 
 
 $(".edit-station").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var Stationid = $(this).data('stationid');
-	$('#id_station').val(Stationid);
-	
-	if ($(this).hasClass("edit-station")) {
-		$("#modifierStation").modal("show");
-	}
+    var Stationid = $(this).data('stationid');
+    $('#id_station').val(Stationid);
+
+    if ($(this).hasClass("edit-station")) {
+        $("#modifierStation").modal("show");
+    }
 });
 $(".delete-station").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var Stationid = $(this).data('stationid');
-	$('#idstation').val(Stationid);
-	if ($(this).hasClass("delete-station")){
-		$("#supprimerStation").modal("show");
-	}
+    var Stationid = $(this).data('stationid');
+    $('#idstation').val(Stationid);
+    if ($(this).hasClass("delete-station")) {
+        $("#supprimerStation").modal("show");
+    }
 });
 
 $(".details-station").click(function (e) {
-	e.preventDefault();
-	var Stationname = $(this).data('stationname');
-	var Stationadress = $(this).data('stationadress');
-	var Stationphone = $(this).data('stationphone');
-	$('#modal-title').html(Stationname);
-	$('#adresse').html(Stationadress);
-	$('#telephone').html(Stationphone);
-	if ($(this).hasClass("details-station")) {
-		$("#showdetailsModal").modal("show");
-	}
+    e.preventDefault();
+    var Stationname = $(this).data('stationname');
+    var Stationadress = $(this).data('stationadress');
+    var Stationphone = $(this).data('stationphone');
+    $('#modal-title').html(Stationname);
+    $('#adresse').html(Stationadress);
+    $('#telephone').html(Stationphone);
+    if ($(this).hasClass("details-station")) {
+        $("#showdetailsModal").modal("show");
+    }
 });
 
 
 
 
-$(".edit-PV").click(function (e) {
-	e.preventDefault();
 
-	var Planingid = $(this).data('planingid');
-	var StationName = $(this).data('stationname');
-	var Annee = $(this).data('annee');
-	$('#planingid').val(Planingid);
-	$('#stationname').val(StationName);
-	$('#annee').val(Annee);
-	if ($(this).hasClass("edit-PV")) {
-		$("#modifierPV").modal("show");
-	}
-});
-$(".delete-PV").click(function (e) {
-	e.preventDefault();
-
-	var Stationid = $(this).data('stationid');
-	$('#idstation').val(Stationid);
-	if ($(this).hasClass("delete-station")) {
-		$("#supprimerPV").modal("show");
-	}
-});
 
 
 $(".edit-stock").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var Idstock = $(this).data('idstock');
-	var Consommation = $(this).data('consommation');
-	var Livraison = $(this).data('livraison');
-	var Decharge = $(this).data('decharge');
-	var Autonomie = $(this).data('autonomie');
-	$('#id_stock').val(Idstock);
-	$('#consommation').val(Consommation);
-	$('#livraison').val(Livraison);
-	$('#decharge').val(Decharge);
-	$('#autonomie').val(Autonomie);
-	if ($(this).hasClass("edit-stock")) {
-		$("#modifierStock").modal("show");
-	}
+    var Idstock = $(this).data('idstock');
+    var Consommation = $(this).data('consommation');
+    var Livraison = $(this).data('livraison');
+    var Decharge = $(this).data('decharge');
+    var Autonomie = $(this).data('autonomie');
+    $('#id_stock').val(Idstock);
+    $('#consommation').val(Consommation);
+    $('#livraison').val(Livraison);
+    $('#decharge').val(Decharge);
+    $('#autonomie').val(Autonomie);
+    if ($(this).hasClass("edit-stock")) {
+        $("#modifierStock").modal("show");
+    }
 });
 $(".delete-stock").click(function (e) {
-	e.preventDefault();
-	var Idstock = $(this).data('id_stock');
-	
-	$('#id_stock').val(Idstock);
-	
-	if ($(this).hasClass("delete-stock")) {
-		$("#supprimerStock").modal("show");
-	}
+    e.preventDefault();
+    var Idstock = $(this).data('id_stock');
+
+    $('#id_stock').val(Idstock);
+
+    if ($(this).hasClass("delete-stock")) {
+        $("#supprimerStock").modal("show");
+    }
+});
+$(document).ready(function () {
+    $(".edit-PV").click(function (e) {
+        e.preventDefault();
+
+        var ID_PV = $(this).data('pvid');
+        $('#id_planning').val(ID_PV);
+        $("#modifierPV").modal("show");
+    });
 });
 
+$(".delete-PV").click(function (e) {
+    e.preventDefault();
+
+    var Stationid = $(this).data('pvid');
+    $('#id_PV').val(Stationid);
+    if ($(this).hasClass("delete-PV")) {
+        $("#supprimerPV").modal("show");
+    }
+});
 
 
 
 $(".edit-CS").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var IdSCentrale = $(this).data('idscentrale');
-	var Stock_Initial = $(this).data('stockinitial');
-	var Stock_Final = $(this).data('stockfinal');
-	var Stock_Ajustement = $(this).data('stockajustement');
-	var Stock_Date = $(this).data('stockdate');
-	$('#Id_SCentrale').val(IdSCentrale);
-	$('#stock_initial').val(Stock_Initial);
-	$('#stock_final').val(Stock_Final);
-	$('#stock_ajustement').val(Stock_Ajustement);
-	$('#stock_date').val(Stock_Date);
-	if ($(this).hasClass("edit-CS")) {
-		$("#modifierCS").modal("show");
-	}
+    var IdSCentrale = $(this).data('idscentrale');
+    var Stock_Initial = $(this).data('stockinitial');
+    var Stock_Final = $(this).data('stockfinal');
+    var Stock_Ajustement = $(this).data('stockajustement');
+    var Stock_Date = $(this).data('stockdate');
+    $('#Id_SCentrale').val(IdSCentrale);
+    $('#stock_initial').val(Stock_Initial);
+    $('#stock_final').val(Stock_Final);
+    $('#stock_ajustement').val(Stock_Ajustement);
+    $('#stock_date').val(Stock_Date);
+    if ($(this).hasClass("edit-CS")) {
+        $("#modifierCS").modal("show");
+    }
 });
 $(".delete-CS").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var IdSCentrale = $(this).data('idscentrale');
-	
-	$('#id_CS').val(IdSCentrale);
-	
-	if ($(this).hasClass("delete-CS")) {
-		$("#supprimerCS").modal("show");
-	}
+    var IdSCentrale = $(this).data('idscentrale');
+
+    $('#id_CS').val(IdSCentrale);
+
+    if ($(this).hasClass("delete-CS")) {
+        $("#supprimerCS").modal("show");
+    }
 });
 
 $(".edit-bateau").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var IdSCentrale = $(this).data('idscentrale');
-	var Stock_Initial = $(this).data('stockinitial');
-	var Stock_Final = $(this).data('stockfinal');
-	var Stock_Ajustement = $(this).data('stockajustement');
-	var Stock_Date = $(this).data('stockdate');
-	$('#Id_SCentrale').val(IdSCentrale);
-	$('#stock_initial').val(Stock_Initial);
-	$('#stock_final').val(Stock_Final);
-	$('#stock_ajustement').val(Stock_Ajustement);
-	$('#stock_date').val(Stock_Date);
-	if ($(this).hasClass("edit-CS")) {
-		$("#modifierCS").modal("show");
-	}
+    var IdSCentrale = $(this).data('idscentrale');
+    var Stock_Initial = $(this).data('stockinitial');
+    var Stock_Final = $(this).data('stockfinal');
+    var Stock_Ajustement = $(this).data('stockajustement');
+    var Stock_Date = $(this).data('stockdate');
+    $('#Id_SCentrale').val(IdSCentrale);
+    $('#stock_initial').val(Stock_Initial);
+    $('#stock_final').val(Stock_Final);
+    $('#stock_ajustement').val(Stock_Ajustement);
+    $('#stock_date').val(Stock_Date);
+    if ($(this).hasClass("edit-CS")) {
+        $("#modifierCS").modal("show");
+    }
 });
 $(".delete-bateau").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var IdBateau = $(this).data('bateauid');
+    var IdBateau = $(this).data('bateauid');
 
-	$('#id_bateau').val(IdBateau);
+    $('#id_bateau').val(IdBateau);
 
-	if ($(this).hasClass("delete-bateau")) {
-		$("#supprimerBateau").modal("show");
-	}
+    if ($(this).hasClass("delete-bateau")) {
+        $("#supprimerBateau").modal("show");
+    }
 });
 
 
 $(".edit-type").click(function (e) {
-	e.preventDefault();
-	var IdType = $(this).data('typeid');
-	$('#id_type').val(IdType);
-	if ($(this).hasClass("edit-type")) {
-		$("#modifierType").modal("show");
-	}
+    e.preventDefault();
+    var IdType = $(this).data('typeid');
+    $('#id_type').val(IdType);
+    if ($(this).hasClass("edit-type")) {
+        $("#modifierType").modal("show");
+    }
 });
 $(".delete-type").click(function (e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	var IdType = $(this).data('typeid');
+    var IdType = $(this).data('typeid');
 
-	$('#id_typesupp').val(IdType);
+    $('#id_typesupp').val(IdType);
 
-	if ($(this).hasClass("delete-type")) {
-		$("#supprimerType").modal("show");
-	}
+    if ($(this).hasClass("delete-type")) {
+        $("#supprimerType").modal("show");
+    }
 });
 
-//remplir les champs du formulaire (Modifier AO)
-function remplirFormulaireAO(id, numAO, type, tonnage, nbr_bateaux, date_creation, date_Emission, date_livraison, observation, statut) {
-	document.getElementById("id_appOffreED").value = id;
-	document.getElementById("n_appel_offreED").value = numAO;
-	document.getElementById("typeED").value = type;
-	document.getElementById("tonnageED").value = tonnage;
-	document.getElementById("nbr_bateauxED").value = nbr_bateaux;
-	document.getElementById("date_creationED").value = date_creation;
-	document.getElementById("date_EmissionED").value = date_Emission;
-	document.getElementById("date_livraisonED").value = date_livraison;
-	document.getElementById("observationED").value = observation;
-	document.getElementById("statutED").value = statut;
-}
 
-//Suppression AO
-function suppressionAO(id) {
-	document.getElementById("Id_AOSupp").value = id;
-}
+
+
+$(".edit-AO").click(function (e) {
+    e.preventDefault();
+    var appOffre = $(this).data('appoffreid');
+    $('#id_appOffreED').val(appOffre);
+    var idPlanning = $(this).data('planingid');
+    $('#idPlanningListe').val(idPlanning);
+    var type = $(this).data('types');
+    $('#nomTypeListe').val(type);
+    var Tonnage = $(this).data('tonn');
+    $('#tonnage').val(Tonnage);
+    var nbrbateaux = $(this).data('nbr');
+    $('#nbr_bateaux').val(nbrbateaux);
+    var datecreation = $(this).data('creation');
+    $('#date_creation').val(datecreation);
+    var dateEmission = $(this).data('emission');
+    $('#date_Emission').val(dateEmission);
+    var datelivraison = $(this).data('livraison');
+    $('#date_livraison').val(datelivraison);
+    var Observation = $(this).data('obser');
+    $('#observation').val(Observation);
+    var Status = $(this).data('stat');
+    $('#status').val(Status);
+    
+
+    if ($(this).hasClass("edit-AO")) {
+        $("#modifierAO").modal("show");
+    }
+});
+$(".delete-AO").click(function (e) {
+    e.preventDefault();
+
+    var appOffre = $(this).data('appoffreid');
+    $('#Id_AOSupp').val(appOffre);
+
+    if ($(this).hasClass("delete-AO")) {
+        $("#supprimerAO").modal("show");
+    }
+});
+
+
 
 
 //remplir les champs du formulaire (Modifier Contrat)
 function remplirFormulaireContrat(nom, statutC, nbrCg, qT, idCt, idCtD) {
-	document.getElementById("nom_contratED11").value = nom;
-	document.getElementById("statut_contratED11").value = statutC;
-	document.getElementById("nbrCg_contratED11").value = nbrCg;
-	document.getElementById("quantite_contratED11").value = qT;
-	//document.getElementById("nomFournisseur_contratED11").value = nomF;
-	document.getElementById("idContrat_contratED11").value = idCt;
-	document.getElementById("idContratDetails_contratED11").value = idCtD;
-	//document.getElementById("type_contratED11").value = typeContrat;
+    document.getElementById("nom_contratED11").value = nom;
+    document.getElementById("statut_contratED11").value = statutC;
+    document.getElementById("nbrCg_contratED11").value = nbrCg;
+    document.getElementById("quantite_contratED11").value = qT;
+    //document.getElementById("nomFournisseur_contratED11").value = nomF;
+    document.getElementById("idContrat_contratED11").value = idCt;
+    document.getElementById("idContratDetails_contratED11").value = idCtD;
+    //document.getElementById("type_contratED11").value = typeContrat;
 }
 
 //Suppression Contrat
 function suppressionContrat(id1, id2) {
-	document.getElementById("Id_ContratSupp").value = id1;
-	document.getElementById("Id_ContratDSupp").value = id2;
+    document.getElementById("Id_ContratSupp").value = id1;
+    document.getElementById("Id_ContratDSupp").value = id2;
 }
+
+
 
 
 

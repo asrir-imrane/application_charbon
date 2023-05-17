@@ -24,14 +24,15 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="id_stock" name="id_stock" readonly="readonly" value="" />
                             </div>
-                            <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
                         </div>
-                    </div>
+                        <p style="display: block;"><strong>Voulez-vous vraiment supprimer cet enregistrement ?</strong></p>
 
-                    <div class="modal-footer">
+                    </div>
+                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                         <asp:Button type="submit" Text="Supprimer" class="btn btn-danger" OnClick="DeleteButton_Stock_Click" runat="server"></asp:Button>
                     </div>
+                   
                 </form>
             </div>
         </div>

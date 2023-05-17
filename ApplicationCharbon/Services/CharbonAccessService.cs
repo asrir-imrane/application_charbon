@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Net;
 using System.Data.Entity.Core.Metadata.Edm;
 using ApplicationCharbon.UI;
+using System.Data.SqlClient;
 
 namespace ApplicationCharbon.Services
 {
@@ -51,7 +52,7 @@ namespace ApplicationCharbon.Services
 
         public List<Centrale_Stock> GetMyDataCS()
         {
-           
+
             var va = _context.Centrale_Stock.SqlQuery("SELECT * from Centrale_Stock").ToList();
             return va;
         }
@@ -60,7 +61,7 @@ namespace ApplicationCharbon.Services
         public List<MaVue> GetMyDataPV()
         {
 
-            
+
             var va = _context.MaVue.SqlQuery("SELECT * from MaVue").ToList();
             return va;
         }
@@ -72,6 +73,23 @@ namespace ApplicationCharbon.Services
             return va;
         }
 
+        public int GetNumberOfValidatedAppelOffre()
+        {
+            var validatedAppelOffres = _context.Appel_Offre.SqlQuery("SELECT * FROM Appel_Offre WHERE statut = 'validee'").ToList();
+            return validatedAppelOffres.Count;
+        }
+
+        public int GetNumberOfRejectedAppelOffre()
+        {
+            var RejectedAppelOffres = _context.Appel_Offre.SqlQuery("SELECT * FROM Appel_Offre WHERE statut = 'rejetee'").ToList();
+            return RejectedAppelOffres.Count;
+        }    
+
+        public int GetNumberOfAttentAppelOffre()
+        {
+            var AttentAppelOffres = _context.Appel_Offre.SqlQuery("SELECT * FROM Appel_Offre WHERE statut = 'en_attente'").ToList();
+            return AttentAppelOffres.Count;
+        }
         //Fournisseur
         public List<Fournisseur> GetMyDataFournisseur()
         {
@@ -109,7 +127,7 @@ namespace ApplicationCharbon.Services
         public List<VBateau> GetMyDataBateau()
         {
 
-            
+
             var va = _context.VBateau.SqlQuery("SELECT * from VBateau ").ToList();
             return va;
         }
@@ -119,10 +137,73 @@ namespace ApplicationCharbon.Services
         public List<Stock> GetMyDataStock()
         {
 
-            
+
             var va = _context.Stock.SqlQuery("SELECT * from Stock ").ToList();
             return va;
         }
 
+
+
+
+
+
+
+
+        //Graphe NbContrat 
+
+
+
+        public List<int> GetNumberContratByMonth(int idStation)
+        {
+            var result = new List<int>();
+            var query = "SELECT COUNT(*) FROM VueContrat WHERE id_station = @idStation AND YEAR(date_debut) = YEAR(GETDATE()) GROUP BY MONTH(date_debut)";
+            var parameters = new SqlParameter("@idStation", idStation);
+
+            var counts = _context.Database.SqlQuery<int>(query, parameters).ToList();
+            result.AddRange(counts);
+
+            return result;
+        }
+
+
+        //2ème Graphe
+        //Origine Plus utilisé
+        public List<vue_origine_plus_utilisé> GetOrigine()
+        {
+            var va = _context.vue_origine_plus_utilisé.SqlQuery("SELECT * from vue_origine_plus_utilisé").ToList();
+            return va;
+        }
+
+        ///////////////////////////////////////////
+        //NumberStation
+        public int GetNumberStation()
+        {
+            var va = _context.Station.SqlQuery("SELECT * from Station").ToList();
+            return va.Count;
+        }
+
+
+        //NumberAppelOffre
+        public int GetNumberAO()
+        {
+            var va = _context.Appel_Offre.SqlQuery("SELECT * from Appel_Offre").ToList();
+            return va.Count;
+        }
+
+        //NumberContrat
+        public int GetNumberContrat()
+        {
+            var va = _context.Contrat.SqlQuery("SELECT * from Contrat").ToList();
+            return va.Count;
+        }
+
     }
+
+
 }
+
+
+
+
+
+

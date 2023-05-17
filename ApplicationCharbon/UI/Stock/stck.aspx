@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../../Assets/CSS/Style.css" />
     <link rel="stylesheet" href="../../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../../Assets/CSS/index.css" />
+    <link rel="stylesheet" href="../../Assets/CSS/Stock.css" />
     <!-- Add Bootstrap JavaScript and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -36,275 +37,10 @@
     <script src="../../Assets/Scripts/nav.js"></script>
     <script src="../../Assets/Scripts/script.js"></script>
 
+
     <!-- BOX ICONS CSS-->
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
-    <style>
-        /* Global Variables */
-        :root {
-            --color1: #20bfa9;
-            --color2: #f73859;
-            --color2Hover: #d83f59;
-            --color3: #fff;
-        }
 
-        .Container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-
-
-        .Card {
-            width: 400px;
-            height: 150px;
-            border-radius: 6px;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-            transition: height 0.5s ease;
-        }
-
-            .Card.open {
-                height: 600px;
-            }
-
-
-
-            .Card::before {
-                background-color: #282828;
-                width: 100%;
-                height: 100px;
-                content: '';
-                position: absolute;
-                z-index: -1;
-            }
-
-
-            .Card::after {
-                background-color: var(--color3);
-                content: '';
-                position: absolute;
-                top: 100px;
-                z-index: -1;
-            }
-
-        .card__title {
-            color: var(--color3);
-            margin: 20px 0;
-        }
-
-        .card__titleSpan {
-            color: #4caf4f;
-        }
-
-        .card__content {
-            background-color: var(--color3);
-            width: 350px;
-            height: 350px;
-            padding: 35px 30px;
-            border-radius: inherit;
-            box-shadow: rgb(149 157 165 / 30%) 0 5px 10px;
-            /* Flex */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0;
-        }
-
-        .card__parametre {
-            background-color: var(--color3);
-            width: 350px;
-            height: 350px;
-            padding: 35px 30px;
-            border-radius: inherit;
-            box-shadow: rgb(149 157 165 / 30%) 0 5px 10px;
-            /* Flex */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0;
-        }
-
-
-        .card__features {
-            /* Flex */
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            align-items: flex-start;
-        }
-
-
-
-
-
-        .card__feature b::after {
-            content: ":";
-            margin-left: 25px;
-            margin-right: 5px;
-        }
-
-        .card__feature {
-            color: #333;
-            position: relative;
-            font-size: 25px;
-        }
-
-            .card__feature:not(.card__feature:last-of-type) {
-                margin-bottom: 7px;
-            }
-
-            .card__feature::before {
-                background-color: var(--color2);
-                width: 10px;
-                height: 10px;
-                margin-top: 6px;
-                border-radius: 50%;
-                content: '';
-                position: absolute;
-                left: -18px;
-            }
-
-        .card__link {
-            background-color: var(--color2);
-            color: var(--color3);
-            width: 180px;
-            height: 40px;
-            margin-top: 30px;
-            text-decoration: none;
-            border-radius: 10px;
-            /* Flex */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-            .card__link:hover {
-                background-color: var(--color2Hover);
-            }
-
-        .hidden {
-            display: none;
-        }
-
-
-
-        .card__toggle-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 10vh;
-        }
-
-        .details {
-            display: inline-block;
-            text-decoration: none;
-            font-family: arial;
-            border-radius: 4px;
-            font-size: 12px;
-            text-align: center;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #ffffff;
-            cursor: pointer;
-            border: none;
-            margin: 10px;
-            padding: 0.87rem;
-            -o-transition: all 0.4s ease-in-out;
-            -webkit-transition: all 0.4s ease-in-out;
-            transition: all 0.4s ease-in-out;
-            background-color: #edadad;
-            color: #ffffff;
-            outline: none;
-            animation: shine 6s linear 2s infinite normal;
-            background-size: 250% 100%;
-            background-image: linear-gradient(60deg, #edadad 0%, #edadad 40%, #efd3d3 66%, #edadad 93%);
-            width: 150px;
-            height: 40px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .noselect {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .card__button-container button {
-            width: 150px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            background: red;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
-            background: #e62222;
-        }
-
-        .card__button-container button, button span {
-            transition: 200ms;
-        }
-
-            .card__button-container button .text {
-                transform: translateX(15px);
-                color: white;
-                font-weight: bold;
-            }
-
-            .card__button-container button .icon {
-                position: absolute;
-                border-left: 1px solid #c41b1b;
-                transform: translateX(110px);
-                height: 40px;
-                width: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .card__button-container button svg {
-                width: 15px;
-                fill: #eee;
-            }
-
-            .card__button-container button:hover {
-                background: #ff3636;
-            }
-
-                .card__button-container button:hover .text {
-                    color: transparent;
-                }
-
-                .card__button-container button:hover .icon {
-                    width: 150px;
-                    border-left: none;
-                    transform: translateX(0);
-                }
-
-            .card__button-container button:focus {
-                outline: none;
-            }
-
-        .card__button-container {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -418,176 +154,96 @@
                 </nav>
 
                 <div class='Container'>
-                    <div class='Card' id='card'>
-                        <h2 class='card__title'>Id Stock: <span class='card__titleSpan'>One</span></h2>
+                    <%@ Import Namespace="ApplicationCharbon.Services" %>
+                    <% var service = new CharbonAccessService();%>
+                    <% string IdBateau = Request.QueryString["id"];%>
+                    <% var va = service.GetMyDataStock();
+                        foreach (var tp in va)
+                        { %>
+                    <div class='Card'>
+                        <h2 class='card__title'>Id Stock: <span class='card__titleSpan'> <%= tp.id_stock%></span></h2>
                         <div class='card__toggle-container'>
-                            <button class="details" id="details-toggle">
+                            <button class="details">
                                 Détails
                             </button>
                         </div>
-                        <div class='card__content hidden' id='detail'>
+                        <div class='card__content hidden'>
                             <div class='card__features'>
-                                <p class='card__feature'><b>Date</b> test</p>
-                                <p class='card__feature'><b>Consommation</b></p>
-                                <p class='card__feature'><b>Origine</b></p>
-                                <p class='card__feature'><b>Livraison</b></p>
-                                <p class='card__feature'><b>Id Bateau</b></p>
-                                <p class='card__feature'><b>Décharge</b></p>
+                                <p class='card__feature'><b>Date</b> <%= tp.date %></p>
+                                <p class='card__feature'><b>Consommation</b><%= tp.consommation %></p>
+                                <p class='card__feature'><b>Livraison</b><%= tp.livraison %></p>
+                                <p class='card__feature'><b>Id Bateau</b><%= IdBateau %></p>
+                                <p class='card__feature'><b>Décharge</b><%= tp.autonomie %></p>
                             </div>
                         </div>
                         <div class="card__button-container">
-                            <button class="noselect"><span class='text'>SUPPRIMER</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" /></svg></span></button>
+                            <button class="option delete-stock" type="button" href="#" data-idstock="<%= tp.id_stock %>">
+                                <span class="delete-stock" href="#" data-idstock="<%= tp.id_stock %>">SUPPRIMER</span>
+                            </button>
+                            <button class="option edit-stock" type="button" href="#" data-idstock="<%= tp.id_stock %>" data-consommation="<%= tp.consommation %>" data-livraison="<%= tp.livraison %>" data-decharge="<%= tp.decharge %>" data-autonomie="<%= tp.autonomie %>">
+                                <span class="edit-stock" href="#" data-idstock="<%= tp.id_stock %>" data-consommation="<%= tp.consommation %>" data-livraison="<%= tp.livraison %>" data-decharge="<%= tp.decharge %>" data-autonomie="<%= tp.autonomie %>">MODIFIER</span>
+                            </button>
                         </div>
                     </div>
+                    <% } %>
                 </div>
-
-
-                <script>
-
-                    const detailsToggle = document.getElementById('details-toggle');
-                    const detailContent = document.getElementById('detail');
-                    const card = document.querySelector('.Card');
-                    const buttonContainer = document.querySelector('.card__button-container');
-
-                    card.addEventListener('click', function () {
-                        card.classList.toggle('open');
-                    });
-
-                    detailsToggle.addEventListener('click', function () {
-                        detailContent.classList.toggle('hidden');
-                        if (!detailContent.classList.contains('hidden')) {
-                            paramContent.classList.add('hidden');
-                        }
-                    });
-
-                    buttonContainer.addEventListener('click', function (event) {
-                        event.stopPropagation();
-                    });
-
-
-                </script>
+                <script src="../../Assets/Scripts/Stock-JS.js"></script>
 
 
 
 
+                <!-- Ajouter Stock Modal HTML -->
+                <div class="modal fade" id="ajouterStockModal" tabindex="-1" aria-labelledby="ajouterStockModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form runat="server">
+                                <div class="modal-header">
+                                    <h2 class="modal-title" id="ajouterStockModalLabel">Ajouter Stock</h2>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                </div>
 
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="Date" class="form-label">Date </label>
+                                        <asp:TextBox ID="date" runat="server" CssClass="form-control" required="required" type="date"></asp:TextBox>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label for="Consommation" class="form-label">Consommation</label>
+                                        <asp:TextBox ID="consommation" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Livraison" class="form-label">Livraison</label>
+                                        <asp:TextBox ID="livraison" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                                    </div>
 
+                                    <div class="form-group ">
+                                        <label for="Id Bateau" class="form-label">Id Bateau</label>
+                                        <asp:DropDownList ID="nombateauliste" runat="server" class="form-select"></asp:DropDownList>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Decharge" class="form-label">Decharge</label>
+                                        <asp:TextBox ID="decharge" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Autonomie" class="form-label">Autonomie</label>
+                                        <asp:TextBox ID="autonomie" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <asp:Button type="submit" Text="Ajouter stock" class="btn btn-success" OnClick="AddButton_Stock_Click" runat="server"></asp:Button>
+                                    <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
+                                </div>
 
-
-                <div class="container-fluid p-3">
-                    <div class="container-fluid p-3">
-                        <div class="table-responsive">
-
-
-                            <table class="table table-hover table-bordered">
-                                <thead class="bg-dark text-white">
-                                    <tr>
-                                        <th class="text-center">Date</th>
-                                        <th class="text-center">Consommation</th>
-                                        <th class="text-center">Livraison</th>
-                                        <th class="text-center">Id Bateau</th>
-                                        <th class="text-center">Decharge</th>
-                                        <th class="text-center">Autonomie</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%@ Import Namespace="ApplicationCharbon.Services" %>
-                                    <% var service = new CharbonAccessService();%>
-                                    <% string IdBateau = Request.QueryString["id"];%>
-                                    <% var va = service.GetMyDataStock();
-                                        foreach (var tp in va)
-                                        { %>
-                                    <tr>
-                                        <td><%= tp.date %></td>
-                                        <td><%= tp.consommation %></td>
-                                        <td><%= tp.livraison %></td>
-                                        <td><%= IdBateau %></td>
-                                        <td><%= tp.decharge %></td>
-                                        <td><%= tp.autonomie %></td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item edit-stock" href="#" data-idstock="<%= tp.id_stock %>" data-consommation="<%= tp.consommation %>" data-livraison="<%= tp.livraison %>" data-decharge="<%= tp.decharge %>" data-autonomie="<%= tp.autonomie %>">
-                                                            <i class="bi bi-pen me-2"></i>Modifier Stock
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider" />
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item delete-stock" href="#" data-idstock="<%= tp.id_stock %>">
-                                                            <i class="bi bi-trash me-2"></i>Supprimer Stock
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                </tbody>
-
-                            </table>
+                            </form>
                         </div>
                     </div>
 
-                    <!-- Ajouter Stock Modal HTML -->
-                    <div class="modal fade" id="ajouterStockModal" tabindex="-1" aria-labelledby="ajouterStockModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form runat="server">
-                                    <div class="modal-header">
-                                        <h2 class="modal-title" id="ajouterStockModalLabel">Ajouter Stock</h2>
-                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label for="Date" class="form-label">Date </label>
-                                            <asp:TextBox ID="date" runat="server" CssClass="form-control" required="required" type="date"></asp:TextBox>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="Consommation" class="form-label">Consommation</label>
-                                            <asp:TextBox ID="consommation" runat="server" CssClass="form-control" required="required"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Livraison" class="form-label">Livraison</label>
-                                            <asp:TextBox ID="livraison" runat="server" CssClass="form-control" required="required"></asp:TextBox>
-                                        </div>
-
-                                        <div class="form-group ">
-                                            <label for="Id Bateau" class="form-label">Id Bateau</label>
-                                            <asp:DropDownList ID="nombateauliste" runat="server" class="form-select"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Decharge" class="form-label">Decharge</label>
-                                            <asp:TextBox ID="decharge" runat="server" CssClass="form-control" required="required"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Autonomie" class="form-label">Autonomie</label>
-                                            <asp:TextBox ID="autonomie" runat="server" CssClass="form-control" required="required"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <asp:Button type="submit" Text="Ajouter stock" class="btn btn-success" OnClick="AddButton_Stock_Click" runat="server"></asp:Button>
-                                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Edit Stock -->
                     <% Server.Transfer("updateStock.aspx");%>
                 </div>
-            </div>
         </div>
+    </div>
     </div>
 </body>
 </html>

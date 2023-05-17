@@ -237,10 +237,11 @@
                 </section>
             </div>
 
-            <button class="back-to-top" onclick="scrollToTop()" id="back-to-up">
-                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-            </button>
+
         </div>
+        <button class="back-to-top" onclick="scrollToTop()" id="back-to-up">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+        </button>
     </div>
 </body>
 </html>

@@ -17,12 +17,10 @@ namespace ApplicationCharbon.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Appel_Offre()
         {
-            this.AppelOffre_Details = new HashSet<AppelOffre_Details>();
             this.Contrat = new HashSet<Contrat>();
         }
     
         public int id_appOffre { get; set; }
-        public string n_appel_offre { get; set; }
         public int id_planning { get; set; }
         public double tonnage { get; set; }
         public System.DateTime date_Emission { get; set; }
@@ -33,8 +31,6 @@ namespace ApplicationCharbon.Models
         public string type { get; set; }
         public string statut { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AppelOffre_Details> AppelOffre_Details { get; set; }
         public virtual Planing_Previsionnel Planing_Previsionnel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrat> Contrat { get; set; }

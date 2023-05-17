@@ -51,7 +51,6 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <!-- Navigation links -->
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
@@ -107,7 +106,7 @@
                             <i class="bi bi-sliders"></i>Paramètre
                         </a>
                         <ul class="submenu">
-                             <li><a href="#">Station</a></li>
+                            <li><a href="#">Station</a></li>
                             <li><a href="#">Origine</a></li>
                             <li><a href="#">Fournisseur</a></li>
                             <li><a href="#">Bateaux</a></li>

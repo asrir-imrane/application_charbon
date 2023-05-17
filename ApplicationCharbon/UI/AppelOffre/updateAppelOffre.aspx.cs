@@ -11,29 +11,91 @@ namespace ApplicationCharbon.UI
 {
     public partial class updateAppelOffre : System.Web.UI.Page
     {
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+
+                FillTypeDropdown();
+                FillidPlanningDropdown();
+            }
+        }
+
+
+
+        private void FillTypeDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomType = contexte.Types.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                nomTypeListe.DataSource = NomType;
+                nomTypeListe.DataTextField = "type";
+                nomTypeListe.DataValueField = "type";
+                nomTypeListe.DataBind();
+            }
+        }
+        private void FillidPlanningDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var idPlanning = contexte.Planing_Previsionnel.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                idPlanningListe.DataSource = idPlanning;
+                idPlanningListe.DataTextField = "id_planning";
+                idPlanningListe.DataValueField = "id_planning";
+                idPlanningListe.DataBind();
+            }
+        }
+
+
         protected void EditButton_AO_Click(object sender, EventArgs e)
         {
-            // Récupérer les valeurs des champs du formulaire
+
             string IdAppOED = id_appOffreED.Value;
             int IdAO = int.Parse(IdAppOED);
 
-            string NappelOffreED = n_appel_offreED.Value;
-            string typED = typeED.Value;
-            string Tonnage = tonnageED.Value;
+            string Tp = nomTypeListe.SelectedValue;
+            int idplanning = Convert.ToInt32(idPlanningListe.SelectedValue);
+            string Tonnage = tonnage.Value;
             float Tng = float.Parse(Tonnage);
 
-            string nbrBateaux = nbr_bateauxED.Value;
+            string nbrBateaux = nbr_bateaux.Value;
             int Nbateau = int.Parse(nbrBateaux);
 
-            DateTime dateCreation = DateTime.Parse(date_creationED.Value);
-            DateTime dateEmission = DateTime.Parse(date_EmissionED.Value);
-            DateTime dateLivraison = DateTime.Parse(date_livraisonED.Value);
+            DateTime dateEmission = DateTime.Parse(date_Emission.Value);
+            DateTime dateLivraison = DateTime.Parse(date_livraison.Value);
+            DateTime dateCreation = DateTime.Parse(date_creation.Value);
+
+            string Observation = observation.Value;
+            string Statut = Request.Form["status"];
+
+
+
+            // Créer un nouvel objet AO avec les valeurs de champ de formulaire
+            Appel_Offre newAO = new Appel_Offre
+            {
+                id_planning = idplanning,
+                tonnage = Tng,
+                date_Emission = dateEmission,
+                date_livraison = dateLivraison,
+                date_creation = dateCreation,
+                nbr_bateaux = Nbateau,
+                observation = Observation,
+                type = Tp,
+                statut = Statut
+            };
+
+
            
 
-            string Observation = observationED.Value;
-            string Statut = statutED.Value;
 
-   
+
+
+
 
             // Récupérer le CS existant de la base de données
             using (var db = new CharbonContext())
@@ -41,8 +103,8 @@ namespace ApplicationCharbon.UI
                 Appel_Offre existingAO = db.Appel_Offre.Find(IdAO);
 
                 // Mettre à jour les propriétés du CS avec les nouvelles valeurs
-                existingAO.n_appel_offre = NappelOffreED;
-                existingAO.type = typED;
+                existingAO.id_planning = idplanning;
+                existingAO.type = Tp;
                 existingAO.tonnage = Tng;
                 existingAO.nbr_bateaux = Nbateau;
                 existingAO.date_creation = dateCreation;
@@ -56,10 +118,8 @@ namespace ApplicationCharbon.UI
                 db.SaveChanges();
             }
 
-            // Rediriger vers la page d'index après une mise à jour réussie du CS
-            // Response.Redirect("index.aspx#CS");
-            string IdPlanning = Request.QueryString["id"];
-            Response.Redirect("AppelOffre.aspx?id=" + IdPlanning);
+          
+            Response.Redirect("AppelOffre.aspx");
         }
     }
 }

@@ -12,16 +12,16 @@ namespace ApplicationCharbon.UI
     {
         protected void DeleteButton_PV_Click(object sender, EventArgs e)
         {
-            string Id_Plan = Id_PlanSupp.Value;
-            int IdPn = int.Parse(Id_Plan);
+            int Id_Plan = Int32.Parse(Request.Form["id_PV"]);
+            
 
             delete Delete = new delete();
-            Delete.SupprimerPV(IdPn);
+            Delete.SupprimerPV(Id_Plan);
 
             // Rediriger vers la page d'index après la suppression
             // Response.Redirect("index.aspx#CS");
-            string id_station = Request.QueryString["id"];
-            Response.Redirect("PlanningPrevisionnel.aspx?id=" + id_station);
+            
+            Response.Redirect("PlanningPrevisionnel.aspx");
         }
     }
 }

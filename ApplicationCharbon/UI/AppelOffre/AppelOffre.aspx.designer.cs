@@ -24,31 +24,22 @@ namespace ApplicationCharbon.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ajouterAppelOffre;
 
         /// <summary>
-        /// id_planningAdd control.
+        /// idPlanningListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText id_planningAdd;
+        protected global::System.Web.UI.WebControls.DropDownList idPlanningListe;
 
         /// <summary>
-        /// n_appel_offre control.
+        /// nomTypeListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText n_appel_offre;
-
-        /// <summary>
-        /// typee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText typee;
+        protected global::System.Web.UI.WebControls.DropDownList nomTypeListe;
 
         /// <summary>
         /// tonnage control.
@@ -102,15 +93,15 @@ namespace ApplicationCharbon.UI
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText observation;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea observation;
 
         /// <summary>
-        /// statut control.
+        /// status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText statut;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect status;
     }
 }

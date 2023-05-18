@@ -82,7 +82,7 @@
                 <div class="sidebar">
                     <div class="list-group">
                         <a href="index.aspx" class="list-group-item list-group-item-action ">
-                            <i class="bi bi-speedometer2 me-2"></i>Accueil
+                            <i class="bi bi-speedometer2 me-2"></i>Tableau de bord
                         </a>
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action active" aria-current="true">
                             <i class="bi bi-sliders"></i>Paramètre
@@ -101,7 +101,7 @@
             </div>
 
             <!-- Main content -->
-            <div class="col-md-9 col-lg-10 main-content">
+            <div class="col-md-9 col-lg-10">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent">
                         <li class="breadcrumb-item"><a href="stations.aspx">Station</a></li>

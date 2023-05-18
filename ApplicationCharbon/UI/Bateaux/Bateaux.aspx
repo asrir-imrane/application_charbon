@@ -96,7 +96,7 @@
                 <div class="sidebar shadow p-3 mb-5 bg-white rounded">
                     <div class="list-group">
                         <a href="index.aspx" class="list-group-item list-group-item-action ">
-                            <i class="bi bi-speedometer2 me-2"></i>Accueil
+                            <i class="bi bi-speedometer2 me-2"></i>Tableau de bord
                         </a>
 
                         <a href="../Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action active" aria-current="true">
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <!-- Main content -->
-            <div class="col-md-9 col-lg-10 main-content py-5">
+            <div class="col-md-9 col-lg-10 py-5">
                 <h2 class="title">Paramètrage</h2>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">

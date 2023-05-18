@@ -58,7 +58,8 @@ section {
 # More Services
 --------------------------------------------------------------*/
 .more-services {
-    padding-top: 20px;
+    padding-top: 10px;
+    
 }
 
     .more-services .card {
@@ -66,7 +67,7 @@ section {
         padding: 160px 20px 20px 20px;
         position: relative;
         width: 100%;
-        margin: 40px;
+        margin: 30px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;

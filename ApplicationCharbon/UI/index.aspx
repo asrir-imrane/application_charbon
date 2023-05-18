@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ApplicationCharbon.UI.index" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="ApplicationCharbon.UI.index" %>
 
 <%@ Import Namespace="ApplicationCharbon.Services" %>
 <%@ Import Namespace="Newtonsoft.Json" %>
@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Accueil</title>
+    <title>Tableau de bord</title>
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" />
@@ -66,21 +66,66 @@
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+            .card:hover {
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .h6 {
+            color: #6c757d;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .h3 {
+            color: #343a40;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .icon {
+            background-color: #3c5a65;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+
+        .bi-file-earmark-text {
+            font-size: 24px;
+        }
+
+        .card-header:first-child {
+            border-radius: 10px;
+        }
+
         .card-header {
             width: 550px;
-            height: 500px;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            height: 450px;
             margin-top: 40px;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
         }
+
 
         .second {
             width: 950px;
-            height: 500px;
-            border-radius: 5px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            height: 450px;
+            background-color: #fff;
             margin-top: 40px;
         }
 
@@ -92,10 +137,24 @@
         .dashboard_title {
             font-size: 30px;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            margin-top: 110px;
         }
 
+            .dashboard_title::before {
+                content: "";
+                position: absolute;
+                bottom: -0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                height: 1px;
+                background-color: #ccc;
+            }
+
+
         .card-header-title {
+            color: #6c757d;
             font-size: 25px;
             font-weight: bold;
             margin-bottom: 10px;
@@ -106,16 +165,14 @@
         }
 
         .status_report_box {
-            width: 500px;
-            height: 400px;
+            height: 350px;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             margin: 20px auto;
-            border-radius: 5px;
-            margin-top: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         canvas#appelOffreChart {
@@ -144,28 +201,47 @@
             height: 100%;
         }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #3c5a65;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            z-index: 999;
+        .status_report_box {
+            position: relative;
         }
 
-            .back-to-top:hover {
-                background-color: #fff;
-                color: #333;
-                box-shadow: 0px 0px 10px #333;
-            }
+        .form {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            bottom: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-list {
+            width: 100px;
+            height: 30px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .button {
+            position: absolute;
+            top: 5px;
+            left: 110px;
+            width: 30px;
+            height: 30px;
+            z-index: 1;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            align-content: center;
+            justify-content: center;
+        }
     </style>
+
 </head>
 <body>
     <div class="container-fluid">
@@ -231,7 +307,7 @@
                 <div class="sidebar shadow p-3 mb-5 bg-white rounded">
                     <div class="list-group">
                         <a href="index.aspx" class="list-group-item list-group-item-action active">
-                            <i class="bi bi-speedometer2 me-2"></i>Accueil
+                            <i class="bi bi-speedometer2 me-2"></i>Tableau de bord
                         </a>
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action " aria-current="true">
                             <i class="bi bi-sliders"></i>Paramètre
@@ -260,20 +336,13 @@
 
 
 
-            <div class="col-md-9 col-lg-10 main-content py-5">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Accueil</h2>
-                    <p class="section">
-                    </p>
-                </div>
-
+            <div class="col-md-9 col-lg-10 py-5">
+                <div class="dashboard_title" data-aos="fade-right">Tableau de bord</div>
 
                 <div class="main-container" id="wrapper">
 
 
                     <div class="container-fluid">
-                        <div class="dashboard_title" data-aos="fade-right">Tableau de bord</div>
-
 
                         <div class="row">
                             <%@ Import Namespace="ApplicationCharbon.Services" %>
@@ -285,7 +354,7 @@
                             <!-- card1 -->
                             <div class="col-md-4" data-aos="fade-right">
                                 <div class="card shadow border-0">
-                                    <div class="card-body" style="background-color: orange;">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col">
                                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Stations</span>
@@ -305,7 +374,7 @@
                             <!-- card2 -->
                             <div class="col-md-4" data-aos="fade-up">
                                 <div class="card shadow border-0">
-                                    <div class="card-body" style="background-color: #F8875A;">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col">
                                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Appels d'Offres</span>
@@ -324,7 +393,7 @@
                             <!-- card3 -->
                             <div class="col-md-4" data-aos="fade-left">
                                 <div class="card shadow border-0">
-                                    <div class="card-body" style="background-color: #34D1B5;">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col">
                                                 <span class="h6 font-semibold text-muted text-sm d-block mb-2">Contrats</span>
@@ -424,13 +493,21 @@
                             </div>
 
                             <div class="col-md-4" data-aos="fade-left">
-                                <div class="card-header second">
-                                    <div class="row">
+                                <div class="card-header  second">
+                                    <div class="row ">
                                         <div class="card-header-title">
                                             <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"></i>
                                             Statistiques de contrats
                                         </div>
                                         <div class="status_report_box Regular shadow">
+                                            <form runat="server">
+                                                <div class="form">
+                                                    <asp:DropDownList ID="nomstationListe" runat="server" class="form dropdown-list"></asp:DropDownList>
+                                                    <input type="hidden" id="selectedStation" runat="server" />
+                                                    <asp:Button type="submit" Text="OK" class="button" OnClick="Choose_Station" runat="server"></asp:Button>
+
+                                                </div>
+                                            </form>
                                             <canvas id="chart" style="width: 100%; height: 100%;"></canvas>
                                         </div>
                                     </div>
@@ -441,21 +518,39 @@
                     </div>
                 </div>
 
-
                 <script>
-    <% var Service = new CharbonAccessService();
-                    var Station = service.GetNumberContratByMonth(1);
-                    var contratData = JsonConvert.SerializeObject(Station); %>
+    <%
+                    int selectedStationValue;
+                    string contratData = "";
 
-    <%-- Create the chart with Chart.js --%>
+                    if (int.TryParse(selectedStation.Value, out selectedStationValue))
+                    {
+                        var Service = new CharbonAccessService();
+                        var Station = Service.GetNumberContratByMonth(selectedStationValue);
+                        contratData = JsonConvert.SerializeObject(Station);
+                    }
+                    else
+                    {
+                        // If parsing fails, set selectedStationValue to the value of the first station in the dropdown
+                        selectedStationValue = int.Parse(nomstationListe.Items[0].Value);
+                        var Service = new CharbonAccessService();
+                        var Station = Service.GetNumberContratByMonth(selectedStationValue);
+                        contratData = JsonConvert.SerializeObject(Station);
+                    }
+    %>
+
                     var ctx = document.getElementById('chart').getContext('2d');
+                    var initialData = JSON.parse('<%= contratData %>');
+
+                    var chartData = initialData || [];
+
                     var chart = new Chart(ctx, {
-                        type: 'line', // Change the chart type to 'line' for an area chart
+                        type: 'line',
                         data: {
                             labels: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
                             datasets: [{
                                 label: "Nombre de contrats",
-                                data: JSON.parse('<%= contratData %>'),
+                                data: chartData,
                                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                                 borderColor: 'rgba(75, 192, 192, 1)',
                                 borderWidth: 1,
@@ -473,19 +568,16 @@
                     });
                 </script>
 
-
-
-
                 <script>
                     // Define the function to generate the chart
                     function generateChart() {
                         // Get the table rows containing the data
                         const tableRows = document.querySelectorAll('.table tbody tr');
 
-                        // Initialize data arrays for each status
-                        const rejectedData = [];
-                        const pendingData = [];
-                        const activatedData = [];
+                        // Initialize data objects for each status
+                        const rejectedData = { count: 0, shape: 'circle', color: 'red' };
+                        const pendingData = { count: 0, shape: 'circle', color: 'orange' };
+                        const activatedData = { count: 0, shape: 'circle', color: 'green' };
 
                         // Loop through table rows and extract data for each month
                         tableRows.forEach(function (row) {
@@ -500,35 +592,24 @@
                             // Increment the corresponding status count for the month
                             switch (status) {
                                 case 'rejected':
-                                    rejectedData[month] = (rejectedData[month] || 0) + 1;
+                                    rejectedData.count++;
                                     break;
                                 case 'pending':
-                                    pendingData[month] = (pendingData[month] || 0) + 1;
+                                    pendingData.count++;
                                     break;
                                 case 'activated':
-                                    activatedData[month] = (activatedData[month] || 0) + 1;
+                                    activatedData.count++;
                                     break;
                             }
                         });
 
                         // Prepare the chart data
                         const chartData = {
-                            labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                            labels: ['Rejetées', 'En attente', 'Activées'],
                             datasets: [
                                 {
-                                    label: 'Rejetées',
-                                    backgroundColor: 'red',
-                                    data: rejectedData
-                                },
-                                {
-                                    label: 'En attente',
-                                    backgroundColor: 'orange',
-                                    data: pendingData
-                                },
-                                {
-                                    label: 'Activées',
-                                    backgroundColor: 'green',
-                                    data: activatedData
+                                    backgroundColor: [rejectedData.color, pendingData.color, activatedData.color],
+                                    data: [rejectedData.count, pendingData.count, activatedData.count]
                                 }
                             ]
                         };
@@ -536,21 +617,10 @@
                         // Create the chart
                         const ctx = document.getElementById('appelOffreChart').getContext('2d');
                         new Chart(ctx, {
-                            type: 'bar',
+                            type: 'pie',
                             data: chartData,
                             options: {
-                                responsive: true,
-                                scales: {
-                                    x: { stacked: true },
-                                    y: {
-                                        stacked: true,
-                                        min: 0,
-                                        max: 20,
-                                        ticks: {
-                                            stepSize: 1
-                                        }
-                                    }
-                                }
+                                responsive: true
                             }
                         });
                     }
@@ -558,22 +628,11 @@
                     // Call the function when the DOM content is loaded
                     document.addEventListener('DOMContentLoaded', generateChart);
                 </script>
-
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-
-
 
             </div>
 
         </div>
     </div>
-    <button class="back-to-top" onclick="scrollToTop()" id="back-to-up">
-        <i class="fa fa-arrow-up" aria-hidden="true"></i>
-    </button>
-    <script src="../Assets/Scripts/main.js"></script>
-
-
 </body>
 </html>

@@ -120,7 +120,7 @@
                 <div class="sidebar shadow p-3 mb-5 bg-white rounded">
                     <div class="list-group">
                         <a href="index.aspx" class="list-group-item list-group-item-action ">
-                            <i class="bi bi-speedometer2 me-2"></i>Accueil
+                            <i class="bi bi-speedometer2 me-2"></i>Tableau de bord
                         </a>
 
                         <a href="Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action active" aria-current="true">
@@ -151,19 +151,15 @@
 
             <!-- Main content -->
 
-
-
-            <div class="col-md-9 col-lg-10 main-content py-5">
-
+            <div class="col-md-9 col-lg-10 py-5">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Paramètre</h2>
+                    <p class="section">
+                        Un ensemble de services offerts pour la gestion de contrats relatifs aux stations, origines, fournisseurs, bateaux et types.
+                    </p>
+                </div>
                 <section id="more-services" class="more-services">
                     <div class="container">
-                        <div class="section-title" data-aos="fade-up">
-                            <h2>Paramètre</h2>
-                            <p class="section">
-                                Un ensemble de services offerts pour la gestion de contrats relatifs aux stations, origines, fournisseurs, bateaux et types.
-                            </p>
-                        </div>
-
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-md-6 d-flex align-items-stretch">
                                 <div class="card" style='background-image: url("../Assets/IMG/central.png");' data-aos="fade-up" data-aos-delay="50">

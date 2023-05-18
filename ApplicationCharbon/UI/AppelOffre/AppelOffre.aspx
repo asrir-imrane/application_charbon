@@ -137,7 +137,7 @@
                 <div class="sidebar shadow p-3 mb-5 bg-white rounded">
                     <div class="list-group">
                         <a href="../index.aspx" class="list-group-item list-group-item-action ">
-                            <i class="bi bi-speedometer2 me-2"></i>Accueil
+                            <i class="bi bi-speedometer2 me-2"></i>Tableau de bord
                         </a>
 
                         <a href="../Paramètre.aspx" id="Paramètre" class="list-group-item list-group-item-action " aria-current="true">
@@ -156,7 +156,7 @@
                         <a href="../PlanningPrevisionnel/PlanningPrevisionnel.aspx" id="Planning_Previsionnel" class="list-group-item list-group-item-action " aria-current="true">
                             <i class="bi bi-calendar-event"></i>Planning Prévisionnel
                         </a>
-                        <a href="../AppelOffre/AppelOffre.aspx" id="Appel_Offre" class="list-group-item list-group-item-action active" aria-current="true">
+                        <a href="AppelOffre.aspx" id="Appel_Offre" class="list-group-item list-group-item-action active" aria-current="true">
                             <i class="bi bi-list-columns"></i>Appel Offre
                         </a>
                         <a href="../Contrat/Contract.aspx" id="Contrat" class="list-group-item list-group-item-action" aria-current="true">
@@ -166,7 +166,7 @@
                 </div>
             </div>
             <!-- Main content -->
-            <div class="col-md-9 col-lg-10 main-content py-5">
+            <div class="col-md-9 col-lg-10 py-5">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Appel d'Offre</h2>
                     <p class="section">

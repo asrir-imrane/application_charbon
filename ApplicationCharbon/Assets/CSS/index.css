@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 * {
     margin: 0;
     padding: 0;
@@ -22,9 +22,11 @@ body {
 body {
     overflow-x: hidden;
 }
-.table_PV{
-    width:1550px;
+
+.table_PV {
+    width: 1550px;
 }
+
 .main-content {
     display: flex;
     justify-content: center;
@@ -33,6 +35,7 @@ body {
     max-width: 2000px;
     margin: 30px auto;
 }
+
 .table-responsive {
     background-color: #fff;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -63,7 +66,6 @@ section {
     padding-bottom: 30px;
     margin-bottom: 100px;
     margin-top: 90px;
-   
 }
 
     .section-title h2 {
@@ -603,6 +605,7 @@ hr {
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     transition: max-height 0.3s ease-out;
+    list-style-type: none;
 }
 
     .submenu li {

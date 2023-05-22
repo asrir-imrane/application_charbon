@@ -156,7 +156,7 @@
                     <div class="table-responsive table_PV " data-aos="fade-up">
                         <div class="d-flex justify-content-between align-items-center form-group">
                             <div class="d-flex align-items-center">
-                                <button type="button" class="btn btn-success btn-lg " data-bs-toggle="modal" data-bs-target="#ajouterAppelOffre">
+                                <button type="button" class="btn btn-success btn-lg " data-bs-toggle="modal" data-bs-target="#addPVModal">
                                     <i class="bi bi-plus-lg"></i>
                                     <span class="d-none d-md-inline-block">Ajouter un Appel d'Offre</span>
                                 </button>

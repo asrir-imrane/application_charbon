@@ -119,8 +119,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\CSS\Contrat.css" />
     <Content Include="Assets\CSS\index.css" />
-    <Content Include="Assets\CSS\IndexPage.css" />
+    <Content Include="Assets\CSS\BoatPage.css" />
     <Content Include="Assets\CSS\LoginStyle.css" />
     <Content Include="Assets\CSS\parametre.css" />
     <Content Include="Assets\CSS\Stock.css" />
@@ -128,6 +129,7 @@
     <Content Include="Assets\CSS\StyleSheet.css" />
     <Content Include="Assets\IMG\36586_large.jpg" />
     <Content Include="Assets\IMG\boat.png" />
+    <Content Include="Assets\IMG\boat2-01.jpg" />
     <Content Include="Assets\IMG\central.png" />
     <Content Include="Assets\IMG\Combustible.png" />
     <Content Include="Assets\IMG\Flat-Icons.com-Square-Boat.png" />
@@ -140,6 +142,7 @@
     <Content Include="Assets\IMG\onee.png" />
     <Content Include="Assets\IMG\stock icon.png" />
     <Content Include="Assets\IMG\stock.png" />
+    <Content Include="Assets\IMG\stock1.jpg" />
     <Content Include="Assets\Scripts\nav.js" />
     <Content Include="Assets\Scripts\script.js" />
     <Content Include="Assets\Scripts\Stock-JS.js" />

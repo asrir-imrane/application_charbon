@@ -11,43 +11,67 @@ namespace ApplicationCharbon.UI
 {
     public partial class updateStock : System.Web.UI.Page
     {
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            if (!IsPostBack)
+            {
+                FillBateauDropdown();
+            }
+        }
+
+
+
+        private void FillBateauDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var Bateaus = contexte.Bateau.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                nombateauliste.DataSource = Bateaus;
+                nombateauliste.DataTextField = "nom_bateau";
+                nombateauliste.DataValueField = "id_bateau";
+                nombateauliste.DataBind();
+            }
+        }
+
         protected void EditButton_Stock_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
             int idStock = Int32.Parse(Request.Form["id_stock"]);
-            
+            int idBateau = Convert.ToInt32(nombateauliste.SelectedValue);
+            string consommationSock = consomation.Text;
+            decimal CS = decimal.Parse(consommationSock);
 
-            string Consommation = consommation.Value;
-            decimal CS = decimal.Parse(Consommation);
+            string livraisonStock = livraisons.Text;
+            float LS = float.Parse(livraisonStock);
 
-            string Livraison = livraison.Value;
-            float Lv = float.Parse(Livraison);
+            string dechargeStock = decharges.Text;
+            float DG = float.Parse(dechargeStock);
 
-            string Decharge = decharge.Value;
-            float DG = float.Parse(Decharge);
-
-            string Autonomie = autonomie.Value;
-            float Autmie = float.Parse(Autonomie);
+            string autonomieStock = autonomies.Text;
+            float Autonomie = float.Parse(autonomieStock);
             // Récupérer le CS existant de la base de données
             using (var db = new CharbonContext())
             {
                 Stock existingStock = db.Stock.Find(idStock);
 
                 // Mettre à jour les propriétés du CS avec les nouvelles valeurs
+                
+                existingStock.id_bateau = idBateau;
                 existingStock.consommation = CS;
-                existingStock.livraison = Lv;
+                existingStock.livraison = LS;
                 existingStock.decharge = DG;
-                existingStock.autonomie = Autmie;
+                existingStock.autonomie = Autonomie;
 
                 // Enregistrer les modifications dans la base de données
                 db.Entry(existingStock).State = EntityState.Modified;
                 db.SaveChanges();
             }
 
-            // Rediriger vers la page d'index après une mise à jour réussie du CS
-            // Response.Redirect("index.aspx#CS");
-            string IdBateau = Request.QueryString["id"];
-            Response.Redirect("stck.aspx?id=" + IdBateau);
+            Response.Redirect("stck.aspx");
         }
     }
 }

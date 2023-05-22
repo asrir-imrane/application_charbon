@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="../../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../../Assets/CSS/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
     <style>
         canvas {
             display: block;
@@ -261,15 +263,21 @@
                                     </button>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <button class="excel-form btn btn-success" type="button" onclick="exportTableToExcel()">
-                                        <i class="bi bi-file-excel me-2"></i>Export to Excel
+                                    <button class="excel-form btn btn-success me-2" type="button" onclick="exportTableToExcel()">
+                                        <i class="bi bi-file-excel me-2"></i>Exporter format Excel
    
                                     </button>
+
+                                    <button class="pdf-form btn btn-success" type="button" onclick="exportTableToPDF()">
+                                        <i class="bi bi-file-pdf-fill me-2"></i>Export as PDF
+                                    </button>
+
+
                                 </div>
 
 
                             </div>
-                            <table id="status-table" class="table table-hover table-nowrap" >
+                            <table id="status-table" class="table table-hover table-nowrap">
                                 <thead class="thead-light">
                                     <tr class="text-center">
                                         <th>Id Apple d'Offre</th>
@@ -331,12 +339,101 @@
                                     <% } %>
                                 </tbody>
                             </table>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+                            <script>
+                                function exportTableToPDF() {
+                                    var element = document.getElementById('status-table');
+
+                                    var currentDate = new Date();
+                                    var formattedDate =
+                                        currentDate.getFullYear() +
+                                        '-' +
+                                        (currentDate.getMonth() + 1) +
+                                        '-' +
+                                        currentDate.getDate();
+                                    var opt = {
+                                        margin: 0,
+                                        filename: 'appel_offre_' + formattedDate + '.pdf',
+                                        image: { type: 'jpeg', quality: 0.98 },
+                                        html2canvas: { scale: 2 },
+                                        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                                    };
+
+                                    html2pdf().set(opt).from(element).save();
+                                }
+
+
+                                function exportTableToExcel() {
+                                    var table = document.getElementById('status-table');
+
+                                    // Create a new Excel Workbook
+                                    var workbook = new ExcelJS.Workbook();
+                                    var worksheet = workbook.addWorksheet('Table Data');
+
+                                    // Get the header row from the table
+                                    var headerRow = table.querySelector('thead tr');
+
+                                    // Iterate through each cell in the header row and add the data to the Excel worksheet
+                                    headerRow.querySelectorAll('th:not(:last-child)').forEach(function (
+                                        cell,
+                                        cellIndex
+                                    ) {
+                                        worksheet.getCell(1, cellIndex + 1).value = cell.innerText;
+                                        worksheet.getCell(1, cellIndex + 1).fill = {
+                                            type: 'pattern',
+                                            pattern: 'solid',
+                                            fgColor: { argb: 'FFCCCCCC' },
+                                        };
+                                        worksheet.getCell(1, cellIndex + 1).font = {
+                                            bold: true,
+                                        };
+                                    });
+
+                                    // Get the data rows from the table body
+                                    var dataRows = table.querySelectorAll('tbody tr');
+
+                                    // Iterate through each data row and add the data to the Excel worksheet
+                                    dataRows.forEach(function (row, rowIndex) {
+                                        var rowData = [];
+                                        row.querySelectorAll('td:not(:last-child)').forEach(function (
+                                            cell,
+                                            cellIndex
+                                        ) {
+                                            rowData[cellIndex + 1] = cell.innerText;
+                                        });
+                                        worksheet.addRow(rowData);
+
+                                        worksheet.getRow(rowIndex + 2).fill = {
+                                            type: 'pattern',
+                                            pattern: 'solid',
+                                            fgColor: { argb: rowIndex % 2 === 0 ? 'FFEFEFEF' : 'FFFFFFFF' },
+                                        };
+                                    });
+
+                                    // Get the current date
+                                    var currentDate = new Date();
+                                    var formattedDate =
+                                        currentDate.getFullYear() +
+                                        '-' +
+                                        (currentDate.getMonth() + 1) +
+                                        '-' +
+                                        currentDate.getDate();
+
+                                    // Generate the file name with the current date
+                                    var fileName = 'appel_offre_' + formattedDate + '.xlsx';
+
+                                    // Save the workbook as an Excel file
+                                    workbook.xlsx.writeBuffer().then(function (buffer) {
+                                        saveAs(new Blob([buffer], { type: 'application/octet-stream' }), fileName);
+                                    });
+                                }
+</script>
 
                         </div>
                     </div>
 
                 </div>
-
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
                     $(document).ready(function () {
@@ -372,29 +469,8 @@
                     });
 
 </script>
-                <script>
-                    function exportTableToExcel() {
-                        var table = document.querySelector('.table');
 
-                        // Create a new Excel Workbook
-                        var workbook = new ExcelJS.Workbook();
-                        var worksheet = workbook.addWorksheet('Table Data');
 
-                        // Iterate through each row of the table and add the data to the Excel worksheet
-                        table.querySelectorAll('tr').forEach(function (row, rowIndex) {
-                            var rowData = [];
-                            row.querySelectorAll('td').forEach(function (cell, cellIndex) {
-                                rowData[cellIndex + 1] = cell.innerText;
-                            });
-                            worksheet.addRow(rowData);
-                        });
-
-                        // Save the workbook as an Excel file
-                        workbook.xlsx.writeBuffer().then(function (buffer) {
-                            saveAs(new Blob([buffer], { type: 'application/octet-stream' }), 'table_data.xlsx');
-                        });
-                    }
-</script>
 
             </div>
         </div>
@@ -459,8 +535,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler" />
-                        <asp:Button type="submit" Text="Ajouter" class="btn btn-primary" OnClick="AddButton_AO_Click" runat="server"></asp:Button>
+                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Annuler" />
+                        <asp:Button type="submit" Text="Ajouter" class="btn btn-success" OnClick="AddButton_AO_Click" runat="server"></asp:Button>
                     </div>
                 </div>
             </div>

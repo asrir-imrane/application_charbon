@@ -380,27 +380,9 @@ i {
         object-fit: cover;
     }
 
-.card_id {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border-radius: 0.25rem;
-    background-color: #23343b;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-}
 
-    .card_id span {
-        font-size: 12px;
-        margin-top: -2px;
-        color: white;
-    }
+
+
 
 .note {
     position: absolute;
@@ -415,6 +397,8 @@ i {
 
 
 
+
+
 .cards_item {
     display: inline-block;
     padding: 1rem;
@@ -422,7 +406,13 @@ i {
     margin: 0.5rem;
 }
 
-
+container_bateaux .card_content {
+    position: relative;
+    padding: 16px 12px 32px 24px;
+    margin: 16px 8px 8px 0;
+    max-height: 290px;
+    overflow-y: scroll;
+}
 
 .container_bateaux {
     display: flex;
@@ -498,9 +488,29 @@ i {
         opacity: 1;
     }
 
-    .container_bateaux .card .btn-edit:hover {
-        background-color: #fff;
+    .container_bateaux .card .delete-bateau::before {
+        content: '';
+        position: absolute;
+        top: 0px;
+        right: 10px;
+        transform: translateX(-50%);
+        background-color: #000;
+        color: #fff;
+        font-size: 12px;
+        padding: 5px;
+        border-radius: 4px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
     }
+
+    .container_bateaux .card .delete-bateau:hover::before {
+        content: 'Supprimer';
+        opacity: 1;
+    }
+
+.container_bateaux .card .btn-edit:hover {
+    background-color: #fff;
+}
 
 .main_bateaux {
     max-width: 1200px;

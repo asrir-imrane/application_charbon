@@ -25,6 +25,7 @@
 
 
 
+
 $(function () {
     $('[data-dismiss="modal"]').click(function () {
         $('.modal').modal('hide');
@@ -91,34 +92,6 @@ $(".details-station").click(function (e) {
 
 
 
-
-$(".edit-stock").click(function (e) {
-    e.preventDefault();
-
-    var Idstock = $(this).data('idstock');
-    var Consommation = $(this).data('consommation');
-    var Livraison = $(this).data('livraison');
-    var Decharge = $(this).data('decharge');
-    var Autonomie = $(this).data('autonomie');
-    $('#id_stock').val(Idstock);
-    $('#consommation').val(Consommation);
-    $('#livraison').val(Livraison);
-    $('#decharge').val(Decharge);
-    $('#autonomie').val(Autonomie);
-    if ($(this).hasClass("edit-stock")) {
-        $("#modifierStock").modal("show");
-    }
-});
-$(".delete-stock").click(function (e) {
-    e.preventDefault();
-    var Idstock = $(this).data('id_stock');
-
-    $('#id_stock').val(Idstock);
-
-    if ($(this).hasClass("delete-stock")) {
-        $("#supprimerStock").modal("show");
-    }
-});
 $(document).ready(function () {
     $(".edit-PV").click(function (e) {
         e.preventDefault();
@@ -245,7 +218,7 @@ $(".edit-AO").click(function (e) {
     $('#observation').val(Observation);
     var Status = $(this).data('stat');
     $('#status').val(Status);
-    
+
 
     if ($(this).hasClass("edit-AO")) {
         $("#modifierAO").modal("show");
@@ -265,23 +238,9 @@ $(".delete-AO").click(function (e) {
 
 
 
-//remplir les champs du formulaire (Modifier Contrat)
-function remplirFormulaireContrat(nom, statutC, nbrCg, qT, idCt, idCtD) {
-    document.getElementById("nom_contratED11").value = nom;
-    document.getElementById("statut_contratED11").value = statutC;
-    document.getElementById("nbrCg_contratED11").value = nbrCg;
-    document.getElementById("quantite_contratED11").value = qT;
-    //document.getElementById("nomFournisseur_contratED11").value = nomF;
-    document.getElementById("idContrat_contratED11").value = idCt;
-    document.getElementById("idContratDetails_contratED11").value = idCtD;
-    //document.getElementById("type_contratED11").value = typeContrat;
-}
 
-//Suppression Contrat
-function suppressionContrat(id1, id2) {
-    document.getElementById("Id_ContratSupp").value = id1;
-    document.getElementById("Id_ContratDSupp").value = id2;
-}
+
+
 
 
 

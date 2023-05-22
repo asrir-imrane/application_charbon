@@ -15,66 +15,111 @@ namespace ApplicationCharbon.UI
     {
 
         /// <summary>
-        /// idContrat_contratED11 control.
+        /// idContratED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText idContrat_contratED11;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText idContratED;
 
         /// <summary>
-        /// idContratDetails_contratED11 control.
+        /// idContratDetailED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText idContratDetails_contratED11;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText idContratDetailED;
 
         /// <summary>
-        /// nom_contratED11 control.
+        /// nom_contrat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nom_contratED11;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nom_contrat;
 
         /// <summary>
-        /// ddlListeEdit control.
+        /// idAppOffreListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlListeEdit;
+        protected global::System.Web.UI.WebControls.DropDownList idAppOffreListe;
 
         /// <summary>
-        /// nbrCg_contratED11 control.
+        /// TypeListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nbrCg_contratED11;
+        protected global::System.Web.UI.WebControls.DropDownList TypeListe;
 
         /// <summary>
-        /// quantite_contratED11 control.
+        /// FournisseurListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText quantite_contratED11;
+        protected global::System.Web.UI.WebControls.DropDownList FournisseurListe;
 
         /// <summary>
-        /// statut_contratED11 control.
+        /// nbr_cargaisons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText statut_contratED11;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nbr_cargaisons;
+
+        /// <summary>
+        /// quantite_total control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl quantite_total;
+
+        /// <summary>
+        /// date_creation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_creation;
+
+        /// <summary>
+        /// date_debut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_debut;
+
+        /// <summary>
+        /// date_fin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_fin;
+
+        /// <summary>
+        /// status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect status;
     }
 }

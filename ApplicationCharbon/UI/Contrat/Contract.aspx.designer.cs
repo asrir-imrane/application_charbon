@@ -15,93 +15,93 @@ namespace ApplicationCharbon.UI
     {
 
         /// <summary>
-        /// Text1 control.
+        /// idAppOffreListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.WebControls.DropDownList idAppOffreListe;
 
         /// <summary>
-        /// Text2 control.
+        /// nom_contrat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText nom_contrat;
 
         /// <summary>
-        /// Text3 control.
+        /// TypeListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
+        protected global::System.Web.UI.WebControls.DropDownList TypeListe;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// FournisseurListe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList FournisseurListe;
 
         /// <summary>
-        /// Text4 control.
+        /// nbr_cargaison control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
+        protected global::System.Web.UI.WebControls.TextBox nbr_cargaison;
 
         /// <summary>
-        /// Text5 control.
+        /// quantiteTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text5;
+        protected global::System.Web.UI.WebControls.TextBox quantiteTotal;
 
         /// <summary>
-        /// date1 control.
+        /// date_creation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_creation;
 
         /// <summary>
-        /// date2 control.
+        /// date_debut control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_debut;
 
         /// <summary>
-        /// date3 control.
+        /// date_fin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date_fin;
 
         /// <summary>
-        /// Text6 control.
+        /// status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text6;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect status;
     }
 }

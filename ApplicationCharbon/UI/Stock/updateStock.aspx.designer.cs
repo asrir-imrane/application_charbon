@@ -15,48 +15,57 @@ namespace ApplicationCharbon.UI
     {
 
         /// <summary>
-        /// editStockForm control.
+        /// date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm editStockForm;
+        protected global::System.Web.UI.WebControls.TextBox date;
 
         /// <summary>
-        /// consommation control.
+        /// consomation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText consommation;
+        protected global::System.Web.UI.WebControls.TextBox consomation;
 
         /// <summary>
-        /// livraison control.
+        /// livraisons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText livraison;
+        protected global::System.Web.UI.WebControls.TextBox livraisons;
 
         /// <summary>
-        /// decharge control.
+        /// nombateauliste control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText decharge;
+        protected global::System.Web.UI.WebControls.DropDownList nombateauliste;
 
         /// <summary>
-        /// autonomie control.
+        /// decharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText autonomie;
+        protected global::System.Web.UI.WebControls.TextBox decharges;
+
+        /// <summary>
+        /// autonomies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox autonomies;
     }
 }

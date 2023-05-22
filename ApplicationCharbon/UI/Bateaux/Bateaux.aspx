@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../Assets/CSS/Style.css" />
     <link rel="stylesheet" href="../../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../../Assets/CSS/index.css" />
+    <link rel="stylesheet" href="../../Assets/CSS/BoatPage.css" />
     <!-- Add Bootstrap JavaScript and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -139,54 +140,49 @@
 
                 </nav>
 
+
                 <div class="container_bateaux">
-                    <div class="main_bateaux">
-                        <ul class="card_bateau">
-                            <%@ Import Namespace="ApplicationCharbon.Services" %>
-                            <% var service = new CharbonAccessService();%>
+                    <%@ Import Namespace="ApplicationCharbon.Services" %>
+                    <% var service = new CharbonAccessService();%>
 
-                            <% var va = service.GetMyDataBateau();
-                                foreach (var tp in va)
-                                { %>
-                            <li class="cards_item">
-                                <div class="card">
-                                    <div class="card_image">
-                                        <img class="boat" src="../../Assets/IMG/36586_large.jpg" alt="" />
-                                        <span class="card_id"><span>#</span>01</span>
-                                        <a type="button" class="btn-close delete-bateau" href="#" data-dismiss="modal" aria-label="Close">
-                                            <span class="delete-bateau" href="#"></span>
-                                        </a>
-                                        <a type="button" class="edit-bateau" href="#">
-                                            <i class="btn-edit bi bi-pen me-2"></i>
-                                            <span class="edit-bateau" href="#"></span>
-                                        </a>
-                                    </div>
-                                    <div class="card_content">
-                                        <h2 class="card_title"><%= tp.nom_bateau %></h2>
-                                        <div class="card_text">
-                                            <ul class="product-details">
-                                                <li class="product-description">
-                                                    <ul>
-                                                        <li><b>Tonnage:</b><%= tp.tonnage %></li>
-                                                        <li><b>Valeur Calorifique:</b><%= tp.valeur_calorifique %></li>
-                                                        <li><b>Origine:</b><%= tp.nom_origine %></li>
-                                                        <li><b>Coût:</b><%= tp.cout %></li>
-                                                        <li><b>Frais Douane:</b><%= tp.frais_douane %></li>
-                                                        <li><b>Decharge:</b><%= tp.decharge %></li>
-                                                        <li><b>Prix Rendu:</b><%= tp.prix_rendu %></li>
-                                                        <li><b>Assurance:</b><%= tp.assurance %></li>
-                                                        <li><b>Etat Bateau:</b><%= tp.etat %></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <% var va = service.GetMyDataBateau();
+                        foreach (var tp in va)
+                        { %>
+                    <article class="card">
+                        <div class="temporary_text">
+                            <img class="" src="../../Assets/IMG/boat2-01.jpg" alt="" />
+
+
+                            <span class="card_id"><span>#</span><%= tp.id_bateau %></span>
+                        </div>
+                        <div class="cardB_content">
+                            <span class="cardB_title"><%= tp.nom_bateau %></span>
+                            <div class="cardB_description">
+                                <div class="button-box">
+                                    <a type="button" class="btn-close delete-bateau" href="#" data-bateauid="<%= tp.id_bateau %>" style="color: black;" data-dismiss="modal" aria-label="Close">
+                                        <span class="delete-station" href="#"></span>
+                                    </a>
+                                    <a type="button" class="edit-bateau" href="#" data-bateauid="<%= tp.id_bateau %>" style="color: black;" data-dismiss="modal">
+                                        <i class="btn-edit bi bi-pen me-2"></i>
+                                        <span class="edit-bateau" href="#"></span>
+                                    </a>
                                 </div>
-                            </li>
-                            <% } %>
-                        </ul>
 
-                    </div>
+                                <ul>
+                                    <li><b>Tonnage:</b><%= tp.tonnage %></li>
+                                    <li><b>Valeur Calorifique:</b><%= tp.valeur_calorifique %></li>
+                                    <li><b>Origine:</b><%= tp.nom_origine %></li>
+                                    <li><b>Coût:</b><%= tp.cout %></li>
+                                    <li><b>Frais Douane:</b><%= tp.frais_douane %></li>
+                                    <li><b>Decharge:</b><%= tp.decharge %></li>
+                                    <li><b>Prix Rendu:</b><%= tp.prix_rendu %></li>
+                                    <li><b>Assurance:</b><%= tp.assurance %></li>
+                                    <li><b>Etat Bateau:</b><%= tp.etat %></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <% } %>
                 </div>
 
             </div>
@@ -221,7 +217,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tonnage</label>
-                                    <input type="text" class="form-control" id="tonnage" runat="server" required="required" pattern="\d+(\.\d+)?" title="Entrer le tonnage " />
+                                    <input type="number" class="form-control" id="tonnage" runat="server" required="required" pattern="\d+(\.\d+)?" title="Entrer le tonnage " />
                                 </div>
 
 
@@ -232,27 +228,27 @@
 
                                 <div class="form-group">
                                     <label>Valeur Calorifique</label>
-                                    <input type="text" class="form-control" id="valeur_calorifique" runat="server" required="required" />
+                                    <input type="number" class="form-control" id="valeur_calorifique" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label>Coût</label>
-                                    <input type="text" class="form-control" id="cout" runat="server" required="required" />
+                                    <input type="number" class="form-control" id="cout" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label>Frais Douane</label>
-                                    <input type="text" class="form-control" id="frais_douane" runat="server" required="required" />
+                                    <input type="number" class="form-control" id="frais_douane" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label>Decharge</label>
-                                    <input type="text" class="form-control" id="decharge" runat="server" required="required" />
+                                    <input type="number" class="form-control" id="decharge" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label>Prix Rendu</label>
-                                    <input type="text" class="form-control" id="prix_rendu" runat="server" required="required" />
+                                    <input type="number" class="form-control" id="prix_rendu" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Assurance</label>
-                                    <input type="text" class="form-control" id="assurance" runat="server" required="required" />
+                                    <label>Frais Assurance</label>
+                                    <input type="number" class="form-control" id="assurance" runat="server" required="required" />
                                 </div>
                                 <div class="form-group">
                                     <label>Etat Bateau</label>

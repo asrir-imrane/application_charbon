@@ -24,35 +24,9 @@
     <link rel="stylesheet" href="../../Assets/CSS/Style.css" />
     <link rel="stylesheet" href="../../Assets/CSS/StyleSheet.css" />
     <link rel="stylesheet" href="../../Assets/CSS/index.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        canvas {
-            display: block;
-            max-width: 800px;
-            margin: 20px auto;
-        }
-    </style>
-    <style>
-        table, .btn-success, .search-form .form-control {
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        }
+    <link rel="stylesheet" href="../../Assets/CSS/Contrat.css" />
 
-        .excel-form {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 23px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        }
 
-            .excel-form:hover {
-                background-color: #218838;
-            }
-    </style>
     <!-- Add Bootstrap JavaScript and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -180,9 +154,8 @@
 
 
                 <div class="container-fluid p-3" id="table-container">
-
-                    <div class="card shadow border-0 mb-7" data-aos="fade-up">
-                        <div class="table-responsive">
+                    <div class="card shadow border-0 mb-7">
+                        <div class="table-responsive table_PV " data-aos="fade-up">
                             <div class="d-flex justify-content-between align-items-center form-group">
                                 <div class="d-flex align-items-center">
                                     <button type="button" class="btn btn-success btn-lg " data-bs-toggle="modal" data-bs-target="#ajouterContratModal">
@@ -190,79 +163,120 @@
                                         <span class="d-none d-md-inline-block">Ajouter une Contrat</span>
                                     </button>
                                 </div>
-                                <div class="d-flex justify-content-center">
-                                    <button class="excel-form btn btn-success" type="button" onclick="exportTableToExcel()">
-                                        <i class="bi bi-file-excel me-2"></i>Export to Excel
-   
-                                    </button>
+                                <div class="ms-3 search-form">
+                                    <div class="d-flex justify-content-center">
+                                        <form class="d-flex">
+                                            <input class="form-control me-2" id="searchInput"   placeholder="Rechercher..." aria-label="Search" />
+                                        </form>
+                                    </div>
                                 </div>
 
 
-                            </div>
 
-                            <table class="table table-hover table-bordered">
-                                <thead class="thead-light">
-                                    <tr class="text-center">
-                                        <th class="text-center">Nom Contrat</th>
-                                        <th class="text-center">Type</th>
-                                        <th class="text-center">Nom Fournisseur</th>
-                                        <th class="text-center">nombre de Cargaisons</th>
-                                        <th class="text-center">Quantite Total</th>
-                                        <th class="text-center">Date Creation</th>
-                                        <th class="text-center">Date Debut</th>
-                                        <th class="text-center">Date Fin</th>
-                                        <th class="text-center">Statut</th>
-                                        <th class="text-center">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                            </div>
+                            <span>&#x1F7E1;En Attente ,&#x1F7E2; Validée ,&#x1F534; Rejetée</span>
+                            <div class="center" runat="server">
+                                <ul>
                                     <%@ Import Namespace="ApplicationCharbon.Services" %>
                                     <% var service = new CharbonAccessService();%>
 
                                     <% var va = service.GetMyDataContrat();
                                         foreach (var tp in va)
                                         { %>
-                                    <tr>
+                                    <li>
+                                        <div class="image">
+                                            <i class="bi bi-file-earmark-text"></i>
+                                        </div>
+                                        <div class="title_contrat">
 
-                                        <td><%= tp.nom_contrat %></td>
-                                        <td><%= tp.type %></td>
-                                        <td><%= tp.nom_fournisseur %></td>
-                                        <td><%= tp.nbr_cargaisons %></td>
-                                        <td><%= tp.quantite_total %></td>
-                                        <td><%= tp.date_creation %></td>
-                                        <td><%= tp.date_debut %></td>
-                                        <td><%= tp.date_fin %></td>
-                                        <td><%= tp.statut %></td>
+                                            <h4>Nom Contrat : <%= tp.nom_contrat %></h4>
+                                            <br />
+                                            <p>Date Creation :<%= tp.date_creation.ToString("yyyy-MM-dd") %></p>
 
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item edit-stock" href="#" data-idstock="<%= tp.id_contrat%>" data-nomcontrat="<%= tp.nom_contrat %>" data-type="<%= tp.type %>" data-nomfournisseur="<%= tp.nom_fournisseur %>" data-nbrcargaisons="<%= tp.nbr_cargaisons %>" data-quantitetotal="<%= tp.quantite_total %>" data-datecreation="<%= tp.date_creation %>" data-datedebut="<%= tp.date_debut %>" data-datefin="<%= tp.date_fin %>" data-statut="<%= tp.statut %>">
-                                                            <i class="bi bi-pen me-2"></i>Modifier Contrat
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider" />
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item delete-stock" href="#" data-idstock="<%= tp.id_contrat %>">
-                                                            <i class="bi bi-trash me-2"></i>Supprimer Contrat
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                        </div>
+                                        <div class="text-group">
+                                            <p>ID Fournisseur :<%= tp.id_fournisseur %></p>
+                                            <p>Quantite Total : <%= tp.quantite_total %></p>
+                                            <p>Nombre de Cargaisons: <%= tp.nbr_cargaisons %></p>
+                                        </div>
+                                        <div class="date-group">
+                                            <p>Type:<%= tp.type %></p>
+                                            <p>Date Debut :<%= tp.date_debut.ToString("yyyy-MM-dd") %></p>
+                                            <p>Date Fin : <%= tp.date_fin.ToString("yyyy-MM-dd") %></p>
+                                        </div>
+                                        <div class="action-group">
+                                            <div class="button-box">
+                                                <a type="button" class="edit edit-contrat" href="#" data-toggle="modal" data-contratid="<%= tp.id_contrat %>" data-contratdetailid="<%= tp.id_contDetails %>">
+                                                    <i class="btn-edit bi bi-pen " title="Modifier" style="color: black;"></i>
+                                                </a>
                                             </div>
-                                        </td>
-                                    </tr>
-                                    <% } %>
-                                </tbody>
+                                            <br />
+                                            <div class="button-box">
+                                                <a type="button" href="#" class="delete delete-contrat" data-toggle="modal" data-contratid="<%= tp.id_contrat %>" data-contratdetailid="<%= tp.id_contDetails %>">
+                                                    <i class="bi bi-x-lg" title="Supprimer" style="color: black;"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <script>
+                                        const imageElement = document.querySelector('.bi.bi-file-earmark-text');
+                                        const statut = '<%= tp.statut %>'; // Added quotes around '<%= tp.statut %>'
+                                        if (statut === "en_attente") {
+                                            imageElement.style.color = "#ffc107";
+                                        } else if (statut === "validee") {
+                                            imageElement.style.color = "#28a745";
+                                        } else if (statut === "rejettee") {
+                                            imageElement.style.color = "#FF0000";
+                                        }
+                                    </script>
 
-                            </table>
+
+                                    <% } %>
+                                </ul>
+
+
+                            </div>
+                            <script>
+                                function searchList() {
+                                    var input = document.getElementById('searchInput').value.toLowerCase();
+                                    var list = document.getElementsByTagName('li');
+
+                                    for (var i = 0; i < list.length; i++) {
+                                        var listItemText = list[i].innerText.toLowerCase();
+
+                                        if (listItemText.includes(input)) {
+                                            list[i].show();
+                                        } else {
+                                            list[i].style.display = 'none';
+                                        }
+                                    }
+                                }
+
+                               
+                                function showAll() {
+                                    var list = document.getElementsByTagName('li');
+
+                                    for (var i = 0; i < list.length; i++) {
+                                        list[i].style.display = '';
+                                    }
+                                }
+
+                                document.getElementById('searchInput').addEventListener('input', searchList);
+                                document.addEventListener('click', function (event) {
+                                    var searchInput = document.getElementById('searchInput');
+
+                                    if (!searchInput.contains(event.target)) {
+                                        showAll();
+                                    }
+                                });
+                            </script>
                         </div>
                     </div>
+
+
+
+
+
 
                     <!-- Ajouter Contract Modal HTML -->
                     <div class="modal fade" id="ajouterContratModal" tabindex="-1" aria-labelledby="ajouterStockModalLabel" aria-hidden="true">
@@ -276,52 +290,58 @@
 
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label>id_appOffre</label>
-                                            <input type="text" class="form-control" id="Text1" runat="server" required="required" />
+                                            <label>Id Appel Offre</label>
+                                            <asp:DropDownList ID="idAppOffreListe" runat="server" class="form-select" required="required"></asp:DropDownList>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Nom Contrat</label>
+                                            <input type="text" class="form-control" id="nom_contrat" runat="server" required="required" />
                                         </div>
                                         <div class="form-group">
-                                            <label>nom_contrat</label>
-                                            <input type="text" class="form-control" id="Text2" runat="server" required="required" />
+                                            <label>Type</label>
+                                            <asp:DropDownList ID="TypeListe" runat="server" class="form-select" required="required"></asp:DropDownList>
                                         </div>
+
                                         <div class="form-group">
-                                            <label>typeC</label>
-                                            <input type="text" class="form-control" id="Text3" runat="server" required="required" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label>nom_fournisseur</label>
-                                            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control"></asp:DropDownList>
+                                            <label>Nom Fournisseur</label>
+                                            <asp:DropDownList ID="FournisseurListe" runat="server" class="form-select"></asp:DropDownList>
 
                                         </div>
                                         <div class="form-group">
-                                            <label>nbr_cargaisons</label>
-                                            <input type="text" class="form-control" id="Text4" runat="server" required="required" />
+                                            <label>Nombre de cargaisons</label>
+                                            <asp:TextBox type="number" ID="nbr_cargaison" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>quantite_total</label>
-                                            <input type="text" class="form-control" id="Text5" runat="server" required="required" />
+                                            <label>Quantite Total</label>
+                                            <asp:TextBox type="number" ID="quantiteTotal" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+
                                         </div>
                                         <div class="form-group">
-                                            <label>date_creation</label>
-                                            <input type="date" class="form-control" id="date1" runat="server" required="required" />
+                                            <label>Date Creation</label>
+                                            <input type="date" class="form-control" id="date_creation" runat="server" required="required" />
                                         </div>
                                         <div class="form-group">
-                                            <label>date_debut</label>
-                                            <input type="date" class="form-control" id="date2" runat="server" required="required" />
+                                            <label>Date Debut</label>
+                                            <input type="date" class="form-control" id="date_debut" runat="server" required="required" />
                                         </div>
                                         <div class="form-group">
-                                            <label>date_fin</label>
-                                            <input type="date" class="form-control" id="date3" runat="server" required="required" />
+                                            <label>Date Fin</label>
+                                            <input type="date" class="form-control" id="date_fin" runat="server" required="required" />
                                         </div>
                                         <div class="form-group">
-                                            <label>statut</label>
-                                            <input type="text" class="form-control" id="Text6" runat="server" required="required" />
+                                            <label>Statut</label>
+                                            <select class="form-select" id="status" runat="server" required="required">
+                                                <option value="validee">&#x1F7E2; Validée</option>
+                                                <option value="en_attente">&#x1F7E1; En attente</option>
+                                                <option value="rejetee">&#x1F534; Rejetée</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <asp:Button type="submit" Text="Ajouter stock" class="btn btn-success" OnClick="AddButton_Contrat_Click" runat="server"></asp:Button>
-                                        <asp:Button runat="server" Text="Annuler" CssClass="btn btn-secondary" data-dismiss="modal" />
+                                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Annuler" />
+                                        <asp:Button type="submit" Text="Ajouter" class="btn btn-success" OnClick="AddButton_Contrat_Click" runat="server"></asp:Button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>

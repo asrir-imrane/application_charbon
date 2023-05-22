@@ -1,12 +1,39 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="updateContract.aspx.cs" Inherits="ApplicationCharbon.UI.updateContract" %>
 
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Modifier Contrat</title>
-    <script src="../Assets/Scripts/script.js"></script>
+    <script>
+
+        $(".edit-contrat").click(function (e) {
+            e.preventDefault();
+            var IdContrat = $(this).data('contratid');
+            $('#idContratED').val(IdContrat);
+            var IdContratDetail = $(this).data('contratdetailid');
+            $('#idContratDetailED').val(IdContratDetail);
+            if ($(this).hasClass("edit-contrat")) {
+                $("#modifierContrat").modal("show");
+            }
+        });
+        $(".delete-contrat").click(function (e) {
+            e.preventDefault();
+
+            var IdContratSupp = $(this).data('contratid');
+            $('#id_contratsupp').val(IdContratSupp);
+            var IdContratSuppDetail = $(this).data('contratdetailid');
+            $('#id_contratDsupp').val(IdContratSuppDetail);
+
+          
+
+            if ($(this).hasClass("delete-contrat")) {
+                $("#supprimerContrat").modal("show");
+            }
+        });</script>
 </head>
 <body>
     <div id="modifierContrat" class="modal fade">
@@ -14,41 +41,73 @@
             <div class="modal-content">
                 <form runat="server">
                     <div class="modal-header">
-                        <h4 class="modal-title">Modifier Contrat</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
+                        <h2 class="modal-title">Modifier Contrat</h2>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                         </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="idContrat_contratED11" runat="server" required="required" style="display: none;" />
+                            <label>ID Contrat</label>
+                            <input type="text" class="form-control" id="idContratED" runat="server" required="required" readonly="readonly" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="idContratDetails_contratED11" runat="server" required="required" style="display: none;" />
+                            <label>ID Détails Contrat</label>
+                            <input type="text" class="form-control" id="idContratDetailED" runat="server" required="required" readonly="readonly" />
                         </div>
                         <div class="form-group">
-                            <label>nom_contrat</label>
-                            <input type="text" class="form-control" id="nom_contratED11" runat="server" required="required" />
+                            <label>Nom Contrat</label>
+                            <input type="text" class="form-control" id="nom_contrat" runat="server" required="required" />
                         </div>
                         <div class="form-group">
-                            <label>nomFournisseur_contrat</label>
-                            <asp:DropDownList ID="ddlListeEdit" runat="server" CssClass="form-control"></asp:DropDownList>
+                            <label>Id Appel Offre</label>
+                            <asp:DropDownList ID="idAppOffreListe" runat="server" class="form-select" required="required"></asp:DropDownList>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Type</label>
+                            <asp:DropDownList ID="TypeListe" runat="server" class="form-select" required="required"></asp:DropDownList>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nom Fournisseur</label>
+                            <asp:DropDownList ID="FournisseurListe" runat="server" CssClass="form-control"></asp:DropDownList>
+
                         </div>
                         <div class="form-group">
-                            <label>nbrCg_contrat</label>
-                            <input type="text" class="form-control" id="nbrCg_contratED11" runat="server" required="required" />
+                            <label>Nombre de cargaisons</label>
+                            <input type="text" class="form-control" id="nbr_cargaisons" runat="server" required="required" />
                         </div>
                         <div class="form-group">
-                            <label>quantiteTotal_contrat</label>
-                            <input type="text" class="form-control" id="quantite_contratED11" runat="server" required="required" />
+                            <label>Quantite Total</label>
+                            <input type="number" class="form-control" id="quantite_total" runat="server" required="required" />
                         </div>
                         <div class="form-group">
-                            <label>statut_contrat</label>
-                            <input type="text" class="form-control" id="statut_contratED11" runat="server" required="required" />
+                            <label>Date Creation</label>
+                            <input type="date" class="form-control" id="date_creation" runat="server" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label>Date Debut</label>
+                            <input type="date" class="form-control" id="date_debut" runat="server" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label>Date Fin</label>
+                            <input type="date" class="form-control" id="date_fin" runat="server" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label>Statut</label>
+                            <select class="form-select" id="status" runat="server" required="required">
+                                <option value="validee">&#x1F7E2; Validée</option>
+                                <option value="en_attente">&#x1F7E1; En attente</option>
+                                <option value="rejetee">&#x1F534; Rejetée</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Annuler" />
-                        <asp:Button type="submit" Text="Modifier" class="btn btn-primary" OnClick="EditButton_Contrat_Click" runat="server"></asp:Button>
+                        <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Annuler" />
+                        <asp:Button type="submit" Text="Modifier" class="btn btn-success" OnClick="EditButton_Contrat_Click" runat="server"></asp:Button>
                     </div>
+
+
                 </form>
             </div>
         </div>

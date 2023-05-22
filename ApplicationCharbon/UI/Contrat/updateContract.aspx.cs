@@ -16,46 +16,85 @@ namespace ApplicationCharbon.UI
         {
             if (!IsPostBack)
             {
-                var service2 = new CharbonAccessService();
-                var va2 = service2.GetMyDataFournisseur();
-                ddlListeEdit.DataSource = va2;
-                ddlListeEdit.DataTextField = "nom_fournisseur"; // la propriété qui contient le nom de fournisseur
-                ddlListeEdit.DataValueField = "id_fournisseur"; // la propriété qui contient l'identifiant de fournisseur
-                ddlListeEdit.DataBind();
+
+                FillFournisseurDropdown();
+                FillidAppelOffreDropdown();
+                FillTypeDropdown();
             }
         }
 
 
 
+        private void FillFournisseurDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomFournisseur = contexte.Fournisseur.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                FournisseurListe.DataSource = NomFournisseur;
+                FournisseurListe.DataTextField = "nom_fournisseur";
+                FournisseurListe.DataValueField = "id_fournisseur";
+                FournisseurListe.DataBind();
+            }
+        }
+        private void FillidAppelOffreDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var idAppelOffre = contexte.Appel_Offre.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                idAppOffreListe.DataSource = idAppelOffre;
+                idAppOffreListe.DataTextField = "id_appOffre";
+                idAppOffreListe.DataValueField = "id_appOffre";
+                idAppOffreListe.DataBind();
+            }
+        }
+        private void FillTypeDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomType = contexte.Types.ToList();
+
+                // Bind the dropdown control to the list of Origine objects
+                TypeListe.DataSource = NomType;
+                TypeListe.DataTextField = "type";
+                TypeListe.DataValueField = "type";
+                TypeListe.DataBind();
+            }
+        }
+
         protected void EditButton_Contrat_Click(object sender, EventArgs e)
         {
             // Récupérer les valeurs des champs du formulaire
-            string IdContratED = idContrat_contratED11.Value;
+            string IdContratED = idContratED.Value;
             int IdCt = int.Parse(IdContratED);
 
-            string IdcontDetailsED = idContratDetails_contratED11.Value;
+            string IdcontDetailsED = idContratDetailED.Value;
             int IdCtDetails = int.Parse(IdcontDetailsED);
 
-            string nomContratED = nom_contratED11.Value;
-            //string typCED = typeCED11.Value;
-            //string nomFournisseurED = nomFournisseur_contratED11.Value;
-            string selectedValue = ddlListeEdit.SelectedValue;
-            int IdFr = int.Parse(selectedValue);
-
-            string nbrCargaisonsED = nbrCg_contratED11.Value;
-            int nbrCargaison = int.Parse(nbrCargaisonsED);
+            int IdAo = Convert.ToInt32(idAppOffreListe.SelectedValue);
+            string typeContrat = TypeListe.SelectedValue;
+            int idFournisseur = Convert.ToInt32(FournisseurListe.SelectedValue);
 
 
-            string quantiteTotalED = quantite_contratED11.Value;
-            decimal QTotalED = decimal.Parse(quantiteTotalED);
 
-            /* DateTime dateCreationC = DateTime.Parse(date_creationED11.Value);
-             DateTime dateDebut = DateTime.Parse(date_debutED11.Value);
-             DateTime dateFin = DateTime.Parse(date_finED11.Value);*/
-
-            string Statut = statut_contratED11.Value;
+            string nomContrat = nom_contrat.Value;
 
 
+            string nbrCargaisons = nbr_cargaisons.Value;
+            int nbrCg = int.Parse(nbrCargaisons);
+
+            string quantiteTotal = quantite_total.Value;
+            decimal qtTotal = decimal.Parse(quantiteTotal);
+
+
+            DateTime dateCreation = DateTime.Parse(date_creation.Value);
+            DateTime dateDebut = DateTime.Parse(date_debut.Value);
+            DateTime dateFin = DateTime.Parse(date_fin.Value);
+
+            string Statut = Request.Form["status"];
 
             // Récupérer le CS existant de la base de données
             using (var db = new CharbonContext())
@@ -63,30 +102,34 @@ namespace ApplicationCharbon.UI
                 Contrat existingContrat = db.Contrat.Find(IdCt);
 
                 // Mettre à jour les propriétés du CS avec les nouvelles valeurs
-                existingContrat.nom_contrat = nomContratED;
+                existingContrat.nom_contrat = nomContrat;
+                existingContrat.id_appOffre = IdAo;
 
                 // Enregistrer les modifications dans la base de données
                 db.Entry(existingContrat).State = EntityState.Modified;
 
 
 
+
                 Contrat_Details existingContratDetails = db.Contrat_Details.Find(IdCtDetails);
 
                 // Mettre à jour les propriétés du CS avec les nouvelles valeurs
-                existingContratDetails.id_fournisseur = IdFr;
-                existingContratDetails.nbr_cargaisons = nbrCargaison;
-                existingContratDetails.quantite_total = QTotalED;
+                existingContratDetails.id_fournisseur = idFournisseur;
+                existingContratDetails.nbr_cargaisons = nbrCg;
+                existingContratDetails.type = typeContrat;
+                existingContratDetails.quantite_total = qtTotal;
                 existingContratDetails.statut = Statut;
+                existingContratDetails.date_creation = dateCreation;
+                existingContratDetails.date_debut = dateDebut;
+                existingContratDetails.date_fin = dateFin;
 
                 // Enregistrer les modifications dans la base de données
                 db.Entry(existingContratDetails).State = EntityState.Modified;
 
                 db.SaveChanges();
             }
-            // Rediriger vers la page d'index après une mise à jour réussie du CS
-            // Response.Redirect("index.aspx#CS");
-            string idAppOffre = Request.QueryString["id"];
-            Response.Redirect("Contract.aspx?id=" + idAppOffre);
+            
+            Response.Redirect("Contract.aspx");
         }
     }
 }

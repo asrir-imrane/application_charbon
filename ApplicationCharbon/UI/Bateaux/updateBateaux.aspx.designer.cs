@@ -39,7 +39,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tonnageED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl tonnageED;
 
         /// <summary>
         /// origineEdit control.
@@ -57,7 +57,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText valeur_calorifiqueED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl valeur_calorifiqueED;
 
         /// <summary>
         /// coutED control.
@@ -66,7 +66,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText coutED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl coutED;
 
         /// <summary>
         /// frais_douaneED control.
@@ -75,7 +75,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText frais_douaneED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl frais_douaneED;
 
         /// <summary>
         /// dechargeED control.
@@ -84,7 +84,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText dechargeED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dechargeED;
 
         /// <summary>
         /// prix_renduED control.
@@ -93,7 +93,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText prix_renduED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl prix_renduED;
 
         /// <summary>
         /// assuranceED control.
@@ -102,7 +102,7 @@ namespace ApplicationCharbon.UI.Bateaux
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText assuranceED;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl assuranceED;
 
         /// <summary>
         /// etatED control.

@@ -16,19 +16,16 @@ namespace ApplicationCharbon.UI
         }
         protected void DeleteButton_Contrat_Click(object sender, EventArgs e)
         {
-            string IdContrat = Id_ContratSupp.Value;
-            int IdCt = int.Parse(IdContrat);
+            int IdContrat = Int32.Parse(Request.Form["id_contratsupp"]);
+            int IdContratD = Int32.Parse(Request.Form["id_contratDsupp"]);
 
-            string IdContratD = Id_ContratDSupp.Value;
-            int IdCtD = int.Parse(IdContratD);
+           
 
             delete Delete = new delete();
-            Delete.SupprimerContrat(IdCt, IdCtD);
+            Delete.SupprimerContrat(IdContrat, IdContratD);
 
-            // Rediriger vers la page d'index après la suppressionSystem.FormatException : 'Le format de la chaîne d'entrée est incorrect.'
-            // Response.Redirect("index.aspx#CS");
-            string idAppOffre = Request.QueryString["id"];
-            Response.Redirect("Contract.aspx?id=" + idAppOffre);
+            
+            Response.Redirect("Contract.aspx");
         }
     }
 }

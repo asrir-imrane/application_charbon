@@ -13,78 +13,119 @@ namespace ApplicationCharbon.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+
+                FillFournisseurDropdown();
+                FillidAppelOffreDropdown();
+                FillTypeDropdown();
+            }
+        }
 
 
 
+        private void FillFournisseurDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomFournisseur = contexte.Fournisseur.ToList();
 
+                // Bind the dropdown control to the list of Origine objects
+                FournisseurListe.DataSource = NomFournisseur;
+                FournisseurListe.DataTextField = "nom_fournisseur";
+                FournisseurListe.DataValueField = "id_fournisseur";
+                FournisseurListe.DataBind();
+            }
+        }
+        private void FillidAppelOffreDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var idAppelOffre = contexte.Appel_Offre.ToList();
 
+                // Bind the dropdown control to the list of Origine objects
+                idAppOffreListe.DataSource = idAppelOffre;
+                idAppOffreListe.DataTextField = "id_appOffre";
+                idAppOffreListe.DataValueField = "id_appOffre";
+                idAppOffreListe.DataBind();
+            }
+        }
+        private void FillTypeDropdown()
+        {
+            using (var contexte = new CharbonContext())
+            {
+                var NomType = contexte.Types.ToList();
 
-            //if (!IsPostBack)
-            //{
-            //    var service1 = new CharbonAccessService();
-            //    var va1 = service1.GetMyDataFournisseur();
-            //    ddlListe.DataSource = va1;
-            //    ddlListe.DataTextField = "nom_fournisseur"; // la propriété qui contient le nom de fournisseur
-            //    ddlListe.DataValueField = "id_fournisseur"; // la propriété qui contient l'identifiant de fournisseur
-            //    ddlListe.DataBind();
-            //}
-
+                // Bind the dropdown control to the list of Origine objects
+                TypeListe.DataSource = NomType;
+                TypeListe.DataTextField = "type";
+                TypeListe.DataValueField = "type";
+                TypeListe.DataBind();
+            }
         }
 
         protected void AddButton_Contrat_Click(object sender, EventArgs e)
         {
-            //var context = new CharbonContext();
-
-            //// string id_station = Request.QueryString["id"];
-            //// Récupérer les valeurs des champs du formulaire
-            //string IdAppOffre = id_appOffreAdd.Value;
-            //int IdAo = int.Parse(IdAppOffre);
-
-            //string nomContrat = nom_contrat.Value;
-            //string typeContrat = typeC.Value;
-
-            //string selectedValue = ddlListe.SelectedValue; //nom_Fournisseur
-            //string IdFournisseur = ddlListe.DataValueField;
-            //int IdFr = int.Parse(IdFournisseur);
-
-            //string nbrCargaisons = nbr_cargaisons.Value;
-            //int nbrCg = int.Parse(nbrCargaisons);
-
-            //string quantiteTotal = quantite_total.Value;
-            //decimal qtTotal = decimal.Parse(quantiteTotal);
 
 
-            //DateTime dateCreation = DateTime.Parse(date_creation.Value);
-            //DateTime dateDebut = DateTime.Parse(date_debut.Value);
-            //DateTime dateFin = DateTime.Parse(date_fin.Value);
+            int IdAo = Convert.ToInt32(idAppOffreListe.SelectedValue);
+            string typeContrat = TypeListe.SelectedValue;
+            int idFournisseur = Convert.ToInt32(FournisseurListe.SelectedValue);
 
-            //string Statut = statut.Value;
 
-            //// Créer un nouvel objet CS avec les valeurs de champ de formulaire
-            //Contrat newContrat = new Contrat
-            //{
-            //    nom_contrat = nomContrat,
-            //    id_appOffre = IdAo
-            //};
 
-            //Contrat_Details newContratD = new Contrat_Details
-            //{
-            //    id_contrat = (int)(context.Contrat.FirstOrDefault(c => c.nom_contrat == nomContrat)?.id_contrat),
-            //    id_fournisseur = IdAo
+            string nomContrat = nom_contrat.Value;
 
-            //};
 
-            //// Ajouter le nouveau CS à la base de données
-            //using (var db = new CharbonContext())
-            //{
-            //    //db.Planing_Previsionnel.Add(newPV);
-            //    //db.SaveChanges();
+            string nbrCargaisons = nbr_cargaison.Text;
+            int nbrCg = int.Parse(nbrCargaisons);
 
-            //}
-            ///* Page.ClientScript.RegisterStartupScript(this.GetType(), "showMessage", "<script>$('#message').show();</script>");
-            // Response.Redirect("index.aspx#CS");*/
-            //string idAppOffre = Request.QueryString["id"];
-            //Response.Redirect("PlanningPrevisionnel.aspx?id=" + idAppOffre);
+            string quantitetotal = quantiteTotal.Text;
+            decimal qtTotal = decimal.Parse(quantitetotal);
+
+
+            DateTime dateCreation = DateTime.Parse(date_creation.Value);
+            DateTime dateDebut = DateTime.Parse(date_debut.Value);
+            DateTime dateFin = DateTime.Parse(date_fin.Value);
+
+            string Statut = Request.Form["status"];
+
+            // Créer un nouvel objet CS avec les valeurs de champ de formulaire
+            Contrat newContrat = new Contrat
+            {
+                nom_contrat = nomContrat,
+                id_appOffre = IdAo
+            };
+            // Ajouter le nouveau CS à la base de données
+            using (var db = new CharbonContext())
+            {
+                db.Contrat.Add(newContrat);
+                db.SaveChanges();
+
+            }
+
+            Contrat_Details newContratD = new Contrat_Details
+            {
+                id_contrat = newContrat.id_contrat,
+                id_fournisseur = idFournisseur,
+                type = typeContrat,
+                nbr_cargaisons = nbrCg,
+                quantite_total = qtTotal,
+                date_creation = dateCreation,
+                date_debut = dateDebut,
+                date_fin = dateFin,
+                statut = Statut
+            };
+
+            // Ajouter le nouveau CS à la base de données
+            using (var db = new CharbonContext())
+            {
+                db.Contrat_Details.Add(newContratD);
+                db.SaveChanges();
+
+            }
+
+            Response.Redirect("Contract.aspx");
 
         }
     }
